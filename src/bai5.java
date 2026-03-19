@@ -11,6 +11,11 @@ public class bai5 {
 
         //khoi tao bien ( them gia tri cho bien)
         int tuoiCon = 10;
+        /*
+         float & double deu la so thap phan
+         float 32-bit
+         double 64-bit
+        * */
         float diemVan = 7.5f; // bien float phai them "f" o sau khi gan gia tri cho bien
         double diemAnh = 7.5;
 
@@ -31,6 +36,7 @@ public class bai5 {
 
         // hang so (khong the thay doi gia tri), co "final" o truoc bien, ten bien viet full hoa
         final int DOSOI = 100;
+       // DOSOI = 200; // dong nay bao loi vi DOSOI la final
 
         System.out.println("do soi cua nuoc la " + DOSOI + " do C");
     }
