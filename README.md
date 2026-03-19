@@ -22,6 +22,9 @@ Bit là đơn vị cơ bản cho các dữ liệu cơ sở:
 ## Chuyển đổi decimal -> binary
 Vì binary là nhị phân nên luôn phải chia 2.
 
+<img width="400" height="317" alt="image" src="https://github.com/user-attachments/assets/35cd0c46-84b9-4590-a556-6b06f7f4ced2" />
+
+
 vd: đổi 50 qua binary:
 1. 50 / 2 = 25, dư 0
 2. 25 / 2 = 12, dư 1
@@ -34,6 +37,9 @@ Lấy số dư từ dưới lên:
 decimal (50) = binary (010011)
 
 ## Chuyển đổi binary -> decimal
+
+<img width="930" height="521" alt="image" src="https://github.com/user-attachments/assets/9194b816-b2a6-40f3-a909-7db4d45cda2b" />
+
 2^9 = 512
 
 2^8 = 256
