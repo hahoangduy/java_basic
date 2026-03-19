@@ -57,6 +57,6 @@ decimal (50) = binary (010011)
 vd: đổi 1001001 qua decimal:
 1. Đánh dấu các số từ phải qua trái bắt đầu = 0
 2. Lấy các số từ dãy số binary nhân với 2^(số được đánh dấu bắt đầu từ trái sang phải)
-3. 1*2^6 + 0*2^5 + 0*2^4 + 1*2^3 + 0*2^2 + 0*2^1 + 1*2^0 = 73
+3. (1 * 2^6) + (0 * 2^5) + (0 * 2^4) + (1 * 2^3) + (0 * 2^2) + (0 * 2^1) + (1 * 2^0) = 73
 
 binary (1001001) = decimal (73)
