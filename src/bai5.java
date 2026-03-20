@@ -24,7 +24,7 @@ public class bai5 {
         System.out.println("tuoi Con khi qua 5 nam = " + tuoiCon); // sau khi thay doi gia tri
 
         System.out.println("diem Van cua Duy la " + diemVan);
-        diemVan = 9;
+        diemVan = 4.5f;
         System.out.println("diem van cua Long la " + diemVan);
 
         System.out.println("diem Anh cua Duy la " + diemAnh);
