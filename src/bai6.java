@@ -7,6 +7,7 @@ public class bai6 {
 
 
         // ep kieu rong
+<<<<<<< HEAD
         int a = 5;
         int b = 32;
         double kq = (double) a/b; // int -> double
@@ -27,6 +28,28 @@ public class bai6 {
 
         float kq5 = (float) a1/b1; // ngoai double co the dung float
         System.out.println(kq5);
+=======
+       int a = 5;
+       int b = 32;
+       double kq = (double) a/b; // int -> double
+       System.out.println(kq);
+
+       int kq1 = a/b;
+       System.out.println(kq1);
+
+       double kq2 = a/b; // neu khong co ep kieu thi may khong the dua ra kq chinh xac
+
+       int a1 = 97;
+       int b1 = 100;
+       double kq3 =  a1/b1;
+       System.out.println(kq3);
+
+       double kq4 =(double) a1/b1;
+       System.out.println(kq4);
+
+       float kq5 = (float) a1/b1; // ngoai double co the dung float
+       System.out.println(kq5);
+>>>>>>> 6cd636e3cba44aa99d629cc719640969d86fd5ce
 
 //        // ep kieu hep
         int c = 128;
