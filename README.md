@@ -13,8 +13,6 @@ Bit là đơn vị cơ bản cho các dữ liệu cơ sở:
 - Integer = 32-bit
 - Long = 64-bit
 
-<<<<<<< HEAD
-
     
 =======
 8 bit = 1 byte
@@ -70,4 +68,17 @@ vd: đổi 1001001 qua decimal:
 3. (1 * 2^6) + (0 * 2^5) + (0 * 2^4) + (1 * 2^3) + (0 * 2^2) + (0 * 2^1) + (1 * 2^0) = 73
 
 binary (1001001) = decimal (73)
->>>>>>> 6cd636e3cba44aa99d629cc719640969d86fd5ce
+
+
+## Quy tắc viết dấu toán tử tiền tố, hậu tố
+
+a++, a-- ( viết phía sau biến ) -> postfix
+++a, --a ( viết trước biến) -> prefix
+
+### Ưu tiên tính toán Postfix, Prefix:
+
+1. Prefix
+2. Các phép toán còn lại
+3. Postfix
+
+
