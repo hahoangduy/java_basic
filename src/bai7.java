@@ -39,21 +39,21 @@ public class bai7 {
         double d2 = 5.0;
         double d3 = -0.5;
 
-        System.out.println(i1 + (i2 * i3));
-        System.out.println(i1 * (i2 + i3));
-        System.out.println(i1 / (i2 + i3));
+        System.out.println("(a) = " + (i1 + (i2 * i3)));
+        System.out.println("(b) = " + (i1 * (i2 + i3)));
+        System.out.println("(c) = " + (i1 / (i2 + i3)));
         double kq = (double) i1 / i2 ;
-        System.out.println(kq + i3);
-        System.out.println(3+4+5/3);
-        System.out.println((3+4+5)/3);
-        System.out.println(d1 + (d2 * d3));
-        System.out.println(d1 + d2 * d3);
-        System.out.println(d1 / d2 - d3);
-        System.out.println(d1 / (d2 - d3));
-        System.out.println(d1 + d2 + d3 / 3);
-        System.out.println((d1 + d2 + d3) / 3);
-        System.out.println(d1 + d2 + (d3 / 3));
-        System.out.println(3 * (d1 + d2) * (d1 - d3));
-
+        System.out.println("(d) = " + (kq + i3));
+        System.out.println("(e) = " + (3+4+5/3));
+        System.out.println("(f) = "+ ((3+4+5)/3));
+        System.out.println("(g) = "+ (d1 + (d2 * d3)));
+        System.out.println("(h) = " + (d1 + d2 * d3));
+        System.out.println("(i) = " + (d1 / d2 - d3));
+        System.out.println("(k) = " + (d1 / (d2 - d3)));
+        System.out.println("(l) = " + (d1 + d2 + d3 / 3));
+        System.out.println("(p) = "+ ((d1 + d2 + d3) / 3));
+        System.out.println("(q) = " + (d1 + d2 + (d3 / 3)));
+        System.out.println("(r) = " + (3 * (d1 + d2) * (d1 - d3)));
+        System.out.println("(t) = " + (i1 * d3 /i2));
     }
 }
