@@ -26,7 +26,7 @@ public class bai10 {
         // nhap chuoi
         /*
         new Scanner(System.in).next...() la de lap lai lenh nhap chuoi nhieu lan ma khong bi loi
-        nhung lenh o dong code tren neu dat lenh nhap chuoi them 1 lan may se bao loi
+        nhung lenh o dong code tren neu dat lenh nhap chuoi them 1 lan nua may se bao loi
         */
 
         // nhap chuoi
