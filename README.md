@@ -81,4 +81,19 @@ a++, a-- ( viết phía sau biến ) -> postfix
 2. Các phép toán còn lại
 3. Postfix
 
+## Scanner
+
+Dùng để người dùng nhập dữ liệu
+Scanner "tên biến" = new Scanner(System.in);
+
+### Code
+Có thể dùng 2 kiểu:
+1. String(Chuỗi)/Byte/Float/Double "tên biến" sc.nextLine/nextByte/nextFloat(tùy theo biến đã đặt phía trước)();
+Khi dùng cách dùng này thì chỉ có thể chạy code bắt đầu từ chuỗi(String) -> ... và không thể quay lại nhập chuỗi.
+
+
+3. String(Chuỗi)/Byte/Float/Double "tên biến" new Scanner(System.in).nextLine/nextByte/nextFloat(tùy theo biến đã đặt phía trước)();
+Khi dùng cách dùng này thì có thể nhập chuỗi(String) -> ... sau đó có thể quay lại nhập chuỗi.
+
+
 
