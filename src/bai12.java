@@ -27,11 +27,20 @@ public class bai12 {
 
 
         // Bai 2
-        Scanner sc2 = new Scanner(System.in);
+       /* Scanner sc2 = new Scanner(System.in);
         System.out.println("Moi nhap can nang: ");
         int kg = sc2.nextInt();
         String nang = (kg <= 30) ? "Ban qua gay" :
                 ((kg < 50 && kg >= 31) ? "Ban gay ":(kg < 70 && kg >= 50) ? "Ban can doi" : " Ban thua can");
         System.out.println(nang);
+        */
+
+        // Bai 3
+        Scanner sc3 = new Scanner(System.in);
+        System.out.println("Moi nhap chieu cao: ");
+        float cao = sc3.nextFloat();
+        String traloi4 = (cao <= 1.40) ? "Ban lun" :
+                ((cao > 1.40 && cao < 1.7) ? "Ban trung binh" : "Ban cao");
+        System.out.println(traloi4);
     }
 }
