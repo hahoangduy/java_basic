@@ -39,5 +39,6 @@ public class bai5 {
        // DOSOI = 200; // dong nay bao loi vi DOSOI la final
 
         System.out.println("do soi cua nuoc la " + DOSOI + " do C");
+
     }
 }
