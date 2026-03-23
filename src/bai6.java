@@ -6,7 +6,7 @@ public class bai6 {
         */
 
 
-        // ep kieu rong
+        // ep kieu rong (tu nho -> lon)
         int a = 5;
         int b = 32;
         double kq = (double) a/b; // int -> double
@@ -49,7 +49,7 @@ public class bai6 {
        float kq11 = (float) a1/b1; // ngoai double co the dung float
        System.out.println(kq5);
 
-//        // ep kieu hep
+//        // ep kieu hep (tu lon -> nho)
         int c = 128;
         byte d = (byte) c; // byte tu -128 -> 127 => ep tu int c = 128 -> byte d => tra kq sai
         System.out.println(c);
