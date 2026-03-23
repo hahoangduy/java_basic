@@ -7,6 +7,7 @@ public class bai7 {
 
         // phep cong
         System.out.println("a + b = " + (a+b) );
+
         //gan bien
         int cong = a + b;
         System.out.println("a + b = " + cong);
@@ -31,7 +32,8 @@ public class bai7 {
 
 
 
-
+        // Bai tap
+        
         int i1 = 2;
         int i2 = 5;
         int i3 = -3;
