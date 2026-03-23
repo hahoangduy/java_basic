@@ -23,5 +23,6 @@ public class bai4 {
 
         // kiem tra kieu double
         System.out.println("max cua kieu double " + Double.MAX_VALUE);
-        System.out.println("min cua kieu double " + Double.MIN_VALUE);    }
+        System.out.println("min cua kieu double " + Double.MIN_VALUE);
+    }
 }
