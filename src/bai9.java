@@ -14,7 +14,6 @@ public class bai9 {
         System.out.println("(d) = " + (!(z > 3 || z < -4)));
         // vi (c) true, ma (d) phu dinh cua (c) nen (d) false
 
-
         // toan tu tien to, hau to ( phep toan don le )
         byte a = 17;
         byte b = 99;
@@ -37,6 +36,7 @@ public class bai9 {
         System.out.println(x);
         System.out.println(y);
         System.out.println(w);
+
 
     }
 }
