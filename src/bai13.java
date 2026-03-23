@@ -67,6 +67,6 @@ public class bai13 {
                 System.out.println("Phim bam khong hop le");
                 break;
         }
-        
+
     }
 }
