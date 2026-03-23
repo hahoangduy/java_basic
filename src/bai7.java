@@ -33,7 +33,6 @@ public class bai7 {
 
 
         // Bai tap
-        
         int i1 = 2;
         int i2 = 5;
         int i3 = -3;
