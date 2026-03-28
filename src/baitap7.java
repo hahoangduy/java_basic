@@ -42,11 +42,13 @@ public class baitap7 {
         Scanner sc1 = new Scanner(System.in);
         System.out.println("Nhap so nguyen duong n: ");
         int n = sc1.nextInt();
+        int demSo = 0;
         for (int i = 1; i <= n; i++){
-            if (i % 3 == 0){
-                
-            }
+            if (i % 3 != 0)
+                demSo += 1;
+            else
+                demSo -= 1;
         }
-
+        System.out.println(demSo);
     }
 }
