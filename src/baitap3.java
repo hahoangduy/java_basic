@@ -16,11 +16,14 @@ public class baitap3 {
         while (x <= n) {
             if (n % x == 0)
                 y++;
+            if (y == 2 && x < n){
+                System.out.println("Khong phai la so nguyen to");
+                break;
+            }
             x++;
         }
-        if (y == 2)
+        if (y == 2 && x-1 == n) {
             System.out.println("La so nguyen to");
-        else
-            System.out.println("Khong phai la so nguyen to");
+        }
     }
 }
