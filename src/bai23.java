@@ -3,17 +3,20 @@ public class bai23 {
         System.out.println("PI = " + Math.PI); // tra ve gia tri cua PI
         // tri tuyet doi
         int a = -8;
-        System.out.println(Math.abs(a)); // gia tri tuyet doi cua a
+        System.out.println("Gia tri tuyet doi cua " + a + " la: " + Math.abs(a)); // gia tri tuyet doi cua a
 
         //max, min
-        System.out.println(Math.max(4,7));
-        System.out.println(Math.min(4,7));
+        System.out.println("Max la: " +Math.max(4,7));
+        System.out.println("Min la: " +Math.min(4,7));
 
         // can bac 2
-        System.out.println(Math.sqrt(4)); // can bac 2 cua 4
+        int b = 4;
+        System.out.println("Can bac 2 cua " + b + " la: " +Math.sqrt(b)); // can bac 2 cua 4
 
         //luy thua
-        System.out.println(Math.pow(2,3));
+        int c = 2;
+        int d = 3;
+        System.out.println(c +  " mu " + d + " la: " + Math.pow(c,d));
 
         // sin, cos, tan
         int goc = 90;
