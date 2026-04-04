@@ -49,7 +49,6 @@ public class baitap10 {
         Scanner sc = new Scanner(System.in);
         System.out.println("Moi nhap 1 so n: ");
         int n = sc.nextInt();
-
         for (int i = 1; i <= n; i++) {
             soNT(i);
             soHH(i);
@@ -57,8 +56,8 @@ public class baitap10 {
     }
     static void soNT(int n) {
         int y = 0;
-        for (int i = 1; i <= n; i++)
-            if (n % i == 0)
+        for (int x = 1; x <= n; x++)
+            if (n % x == 0)
                 y++;
 
         if (y == 2)
@@ -68,9 +67,9 @@ public class baitap10 {
     // số hoàn hảo
     static void soHH(int n) {
         int s = 0;
-        for (int i = 1; i < n; i++)
-            if (n % i == 0)
-                s += i;
+        for (int z = 1; z < n; z++)
+            if (n % z == 0)
+                s += z;
 
         if (s == n)
             System.out.println(n + " la so hoan hao");
