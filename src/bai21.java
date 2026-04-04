@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class bai21 {
     /*public static void main(String[] args) {
-        int kq = Cong(1, 2 ,3);
-        int kq1 = Cong(4, 5 ,6);
+        int kq = Cong(1, 2, 3);
+        int kq1 = Cong(4, 5, 6);
         System.out.println("Tong cac so la: " + kq);
         System.out.println("Tong cac so la: " + kq1);
         XinChao("Female");
@@ -23,13 +23,13 @@ public class bai21 {
         else
             System.out.println("Khong hop le");
     }*/
-/*    public static void main(String[] args) {
-        *//*String kq = GiaiPTB2(1, 2, 3);
+    public static void main(String[] args) {
+        /*String kq = GiaiPTB2(1, 2, 3);
         String kq1 = GiaiPTB2(1, 2, 1);
         String kq2 = GiaiPTB2(1, 2, -3);
         System.out.println(kq);
         System.out.println(kq1);
-        System.out.println(kq2);*//*
+        System.out.println(kq2);*/
 
         // Cho nhap a, b, c
         Scanner sc = new Scanner(System.in);
@@ -67,8 +67,8 @@ public class bai21 {
                 return "PT bac 2 co 2 nghiem phan biet x1 = " + x1 + "; x2 = " + x2;
             }
         }
-    }*/
-
+    }
+/*
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Moi nhap vao so a: ");
@@ -116,5 +116,5 @@ public class bai21 {
             double kq = a / b;
             System.out.println("kq = " + kq);
         }
-    }
+    }*/
 }
