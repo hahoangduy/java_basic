@@ -54,7 +54,7 @@ public class baitap10 {
             soHH(i);
         }
     }
-    static void soNT(int n) {
+    public static void soNT(int n) {
         int y = 0;
         for (int x = 1; x <= n; x++)
             if (n % x == 0)
@@ -65,7 +65,7 @@ public class baitap10 {
     }
 
     // số hoàn hảo
-    static void soHH(int n) {
+    public static void soHH(int n) {
         int s = 0;
         for (int z = 1; z < n; z++)
             if (n % z == 0)
