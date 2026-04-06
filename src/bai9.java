@@ -21,9 +21,9 @@ public class bai9 {
         byte d = 19;
 
         a++; // a = a + 1 -> tang a len 1 gia tri (postfix)
-        ++b; // b = b + 1 -> tang b len 1 gia tri
-        c--; // c = c - 1 -> giam c di 1 gia tri (prefix)
-        --d; // d = d - 1 -> giam d di 1 gia tri
+        ++b; // b = b + 1 -> tang b len 1 gia tri (prefix)
+        c--; // c = c - 1 -> giam c di 1 gia tri (postfix)
+        --d; // d = d - 1 -> giam d di 1 gia tri (prefix)
         System.out.println("a = " + a);
         System.out.println("b = " + b);
         System.out.println("c = " + c);

@@ -28,27 +28,6 @@ public class bai6 {
         float kq5 = (float) a1/b1; // ngoai double co the dung float
         System.out.println(kq5);
 
-       int a2 = 5;
-       int b2 = 32;
-       double kq6 = (double) a/b; // int -> double
-       System.out.println(kq);
-
-       int kq7 = a/b;
-       System.out.println(kq1);
-
-       double kq10 = a/b; // neu khong co ep kieu thi may khong the dua ra kq chinh xac
-
-       int a3 = 97;
-       int b3 = 100;
-       double kq8 =  a1/b1;
-       System.out.println(kq3);
-
-       double kq9 =(double) a1/b1;
-       System.out.println(kq4);
-
-       float kq11 = (float) a1/b1; // ngoai double co the dung float
-       System.out.println(kq5);
-
 //        // ep kieu hep (tu lon -> nho)
         int c = 128;
         byte d = (byte) c; // byte tu -128 -> 127 => ep tu int c = 128 -> byte d => tra kq sai
