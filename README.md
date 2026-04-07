@@ -96,4 +96,11 @@ Khi dùng cách dùng này thì chỉ có thể chạy code bắt đầu từ ch
 Khi dùng cách dùng này thì có thể nhập chuỗi(String) -> ... sau đó có thể quay lại nhập chuỗi.
 
 
+## String
+### Bảng mã ASCII
+<img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/15aa0f71-db65-4874-9372-d9388ac74542" />
+Số Decimal đại diện cho 1 Char(ký tự)
+
+
+
 
