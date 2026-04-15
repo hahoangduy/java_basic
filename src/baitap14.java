@@ -25,17 +25,31 @@ public class baitap14 {
         Collections.sort(soNguyen);
         System.out.println("2. Danh sach sau khi duoc sap xep tang dan: ");
         System.out.println(soNguyen);
+        boolean check = false;
         for (int i = 0; i < soNguyen.size(); i++) {
             if (soNguyen.get(i) > 0) {
                 System.out.println("3. So nguyen duong nho nhat la: " + soNguyen.get(i));
+                check = true;
                 break;
             }
         }
+        if (!check)
+            System.out.println("Khong co so nguyen duong nao.");
         for (int i = 0; i < 10; i++){
             if (soNguyen.get(0) < 0)
                 soNguyen.remove(soNguyen.get(0));
         }
         System.out.println("4. Danh sach sau khi xoa cac so am la: ");
+        System.out.println(soNguyen);
+        /*
+        for (int i = 0, j = soNguyen.size()-1; i < j ; i++, j--){
+            int luu = soNguyen.get(i);
+            int tam = soNguyen.get(j);
+            soNguyen.set(i, tam);
+            soNguyen.set(j, luu);
+        }*/
+        Collections.sort(soNguyen, Collections.reverseOrder()); // sap xep tu lon den be
+        System.out.println("5. Danh sach sau khi duoc sap xep giam dan: ");
         System.out.println(soNguyen);
     }
 }
