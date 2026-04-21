@@ -1,5 +1,7 @@
 package TruongDaiHoc;
 
+
+
 public class SinhVien {
     // thuoc tinh (giong voi bien)
     private String hoTen; // bien toan cuc (Instance variable)
@@ -66,6 +68,7 @@ public class SinhVien {
 
     // toString
 
+
     @Override
     public String toString() {
         return "SinhVien{" +
@@ -78,7 +81,7 @@ public class SinhVien {
     // Support Method chi su dung trong noi tai class -> private
     // ktra diem khi nhap ho so cho sinh vien
 
-    private boolean checkDiem(){
+     private boolean checkDiem(){
         return this.diem >=24;
     }
 
@@ -99,3 +102,5 @@ public class SinhVien {
         return tong;
     }
 }
+
+

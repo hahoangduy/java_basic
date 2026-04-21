@@ -1,5 +1,4 @@
 import TruongDaiHoc.SinhVien;
-
 public class bai30 {
     public static void main(String[] args) {
         // khoi tao doi tuong thuoc class sinh vien
@@ -13,6 +12,8 @@ public class bai30 {
         sv4.hienThithongtin();
         System.out.println(sv4.getHoTen());
         System.out.println(sv4.getDiem());
+
+
 
         //thay doi ten cua sv4
         sv4.setHoTen("Hoang");
