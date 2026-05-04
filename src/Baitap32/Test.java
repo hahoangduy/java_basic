@@ -57,12 +57,14 @@ public class Test {
                 int express = sc.nextInt();
                 ShippingOrder ship = new RoadOrder(id, weight, distance, express);
                 ship.printInvoice();
+                break;
             case 2:
                 System.out.println("Mời bạn chọn kiểu container: ");
                 System.out.println("1. Small | 2. Large");
                 int containerType = sc.nextInt();
                 ShippingOrder ship1 = new SeaOrder(id, distance, containerType);
                 ship1.printInvoice();
+                break;
         }
     }
 }
