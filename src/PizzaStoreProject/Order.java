@@ -23,6 +23,7 @@ public class Order {
         if (pzType.equals("1")) {
             CheesePizza.perpare();
             CheesePizza.addCheese();
+
         }
         if (pzType.equals("2")) {
             GreekPizza.perpare();
