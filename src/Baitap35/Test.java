@@ -114,7 +114,6 @@ public class Test {
                     if (weight <= 0) {
                         System.out.println("Lỗi!");
                         break;
-                        Exception InvalidPhoneNumberException
                     }
                     System.out.println("Base Rate mặc định là 5.000VNĐ nhé");
                     double baseRate = 5000;
