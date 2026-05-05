@@ -21,7 +21,7 @@ public class GoldPlan extends InsurancePlan{
 
     @Override
     public double calculateClaim(double billAmount, int serviceType) {
-        System.out.println("Khách " + getPolicyHolder() + " (" + ("Gói BH " + getPlanId()) + ")" + " khám hóa đơn: " + billAmount);
+        System.out.println("Khách " + getPolicyHolder() + " (" + ("Gói BH " + getPlanId()) + ", userId: " + getUserId() + ")" + " khám hóa đơn: " + billAmount);
         double a = 0;
         if (serviceType == 1) {
             a = billAmount * 1;

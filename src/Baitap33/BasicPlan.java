@@ -14,7 +14,7 @@ public class BasicPlan extends InsurancePlan{
     public double calculateClaim(double billAmount, int serviceType) {
         double a = 0;
         double b = 0;
-        System.out.println("Khách " + getPolicyHolder() + " ("+ (getAge() + " tuổi, gói BH " + getPlanId()) + ")" + " khám hóa đơn: " + billAmount);
+        System.out.println("Khách " + getPolicyHolder() + " ("+ (getAge() + " tuổi, gói BH " + getPlanId()) +", userId: " + getUserId() + ")" + " khám hóa đơn: " + billAmount);
         if (getAge() > 60) {
             a = billAmount * 0.75;
             System.out.println("Tính theo tỉ lệ 75%: " + a);

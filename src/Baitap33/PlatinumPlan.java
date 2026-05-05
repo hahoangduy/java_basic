@@ -12,7 +12,7 @@ public class PlatinumPlan extends InsurancePlan{
 
     @Override
     public double calculateClaim(double billAmount, int serviceType) {
-        System.out.println("Khách " + getPolicyHolder() + " (" + ("Gói BH " + getPlanId()) + ")" + " khám hóa đơn: " + billAmount);
+        System.out.println("Khách " + getPolicyHolder() + " (" + ("Gói BH " + getPlanId()) + ", userId: " + getUserId() + ")" + " khám hóa đơn: " + billAmount);
         double newBill = 0;
         if (billAmount <= 500000) {
             System.out.println("Vì hóa đơn nhỏ hơn hoặc bằng 500.000 VNĐ nên bảo hiểm sẽ chi trả 0 VNĐ");
