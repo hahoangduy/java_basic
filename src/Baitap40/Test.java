@@ -35,7 +35,7 @@ public class Test {
         * Cơ chế của Quái Vật (Monster):
         - Quái vật tấn công bình thường với sát thương bằng đúng Lực tấn công cơ bản.
         - Kỹ năng bị động "Phản đòn": Cơ thể quái vật có gai nhọn. Bất cứ khi nào quái vật nhận sát thương từ một đòn tấn công,
-        kẻ vừa ra đòn sẽ lập tức bị dội lại một lượng sát thương bằng đúng 10% sát thương vừa gây ra cho quái vật.
+        kẻ vừa ra đòn sẽ lập tức bị dội lại một lượng sát thương bằng đúng x% sát thương vừa gây ra cho quái vật.
 
         3. Kịch bản mô phỏng (Test Cases)
         Hãy thiết kế hệ thống OOP để đáp ứng các yêu cầu trên, sau đó khởi tạo một kịch bản trong hàm main() như sau:
@@ -54,153 +54,220 @@ public class Test {
         Scanner sc = new Scanner(System.in);
         CharacterManager cm = new CharacterManager();
         int choice;
-        cm.addC(new Monster("Dragon", 300, 25));
-        cm.addC(new Monster("Phoenix", 200, 20));
-        System.out.println("Phát hiện 2 quái vật ở ngoại thành!");
-        System.out.println("Dragon & Phoenix");
-        cm.addC(new Mage("Merlin", 80, 15, 50));
-        cm.addC(new Warrior("Arthur", 100, 20));
-        boolean isSuccess;
+        boolean isDead;
+        double car = 0;
         do {
-            System.out.println("");
-            System.out.println("Bạn sẽ?");
-            System.out.println("1. Arthur ra trận | 2. Merlin ra trận | 3. Bỏ chạy");
+            System.out.println("Bạn muốn?");
+            System.out.println("1. Khởi tạo nhân vật | 2. Chiến đấu | 3. Kết thúc trò chơi");
             choice = sc.nextInt();
-            double dameDragon = cm.fight("Dragon");
             switch (choice) {
                 case 1:
-                    System.out.println("Bạn muốn làm gì?");
-                    System.out.println("1. Tấn công | 2. Phòng thủ | 3. Xem trạng thái hiện tại");
-                    int choice1 = sc.nextInt();
-                    switch (choice1) {
+                    System.out.println("Nhân vật của bạn tên gì?");
+                    String name = sc.next();
+                    System.out.println("Điểm tấn công của nhân vật: ");
+                    double dameSet = sc.nextInt();
+                    System.out.println("Máu tối đa của nhân vật: ");
+                    double hp = sc.nextInt();
+                    System.out.println("Bạn muốn nhân vật của bạn là?");
+                    System.out.println("1. Warrior | 2. Mage | 3. Monster");
+                    int chon = sc.nextInt();
+                    switch (chon) {
                         case 1:
-                            double dameArthur = cm.fight("Arthur");
-                            System.out.println("Bạn muốn tấn công quái vật nào?");
-                            System.out.println("1. Dragon | 2. Phoenix");
-                            int choice2 = sc.nextInt();
-                            if (choice2 == 1) {
-                                isSuccess = cm.status("Arthur");
-                                if (isSuccess) {
-                                    System.out.println("Arthur đã chết!");
-                                    break;
-                                }
-                                else {
-                                    System.out.println("Quái vật Dragon bị trừ " + dameArthur + " máu.");
-                                    cm.biTanCong("Dragon", dameArthur);
-                                }
-                                isSuccess = cm.status("Dragon");
-                                if (isSuccess) {
-                                    System.out.println("Quái vật đã chết!");
-                                }
-                                else {
-
-                                    System.out.println("Bạn bị quái vật tấn công mất " + dameDragon + " máu.");
-                                    cm.biTanCong("Arthur", dameDragon);
-                                }
-                                break;
-                            }
-                            if (choice2 == 2) {
-                                isSuccess = cm.status("Arthur");
-                                if (isSuccess) {
-                                    System.out.println("Arthur đã chết!");
-                                    break;
-                                }
-                                else {
-                                    System.out.println("Quái vật Phoenix bị trừ " + dameArthur + " máu.");
-                                    cm.biTanCong("Phoenix", dameArthur);
-                                }
-                                isSuccess = cm.status("Phoenix");
-                                if (isSuccess) {
-                                    System.out.println("Quái vật đã chết!");
-                                }
-                                else {
-                                    double damePhoenix = cm.fight("Phoenix");
-                                    System.out.println("Bạn bị quái vật tấn công mất " + damePhoenix + " máu.");
-                                    cm.biTanCong("Arthur", damePhoenix);
-                                }
-                                break;
-                            }
-                            else {
-                                System.out.println("Không có quái vật này!");
-                            }
+                            cm.addC(new Warrior(name, hp, dameSet, "Warrior"));
+                            System.out.println("Bạn thêm nhân vật thành công!");
                             break;
                         case 2:
-                            System.out.println("Đang nghỉ ngơi!");
+                            System.out.println("Mana của nhân vật: ");
+                            double mana = sc.nextDouble();
+                            cm.addC(new Mage(name, hp, dameSet, mana, "Mage"));
+                            System.out.println("Bạn thêm nhân vật thành công!");
                             break;
                         case 3:
-                            cm.display();
+                            System.out.println("Mời nhập tỉ lệ phản đòn của quái vật: ");
+                            car = sc.nextDouble();
+                            cm.addC(new Monster(name, hp, dameSet, "Monster", car));
+                            break;
+                        default:
+                            System.out.println("Không có chức năng này!");
                             break;
                     }
                     break;
                 case 2:
-                    System.out.println("Bạn muốn làm gì?");
-                    System.out.println("1. Tấn công | 2. Hồi máu | 3. Xem trạng thái hiện tại");
-                    int choice3 = sc.nextInt();
-                    switch (choice3) {
-                        case 1:
-                            double dameMerlin = cm.fight("Merlin");
-                            System.out.println("Bạn muốn tấn công quái vật nào!");
-                            System.out.println("1. Dragon | 2. Phoenix");
-                            int choice4 = sc.nextInt();
-                            if (choice4 == 1) {
-                                isSuccess = cm.status("Merlin");
-                                if (isSuccess) {
-                                    System.out.println("Merlin đã chết!");
-                                    break;
+                    cm.display();
+                    System.out.println("Nhập tên nhân vật của bạn: ");
+                    String nameOut = sc.next();
+                    double dame = cm.fight(nameOut);
+                    for (Character x : cm.getList()) {
+                        if (x.getCharacterName().equals(nameOut)) {
+                            if (x.getType().equals("Warrior")) {
+                                System.out.println("Bạn muốn làm gì?");
+                                System.out.println("1. Tấn công | 2. Phòng thủ | 3. Tạo thêm nhân vật");
+                                int choice1 = sc.nextInt();
+                                switch (choice1) {
+                                    case 1:
+                                        System.out.println("Bạn muốn tấn công quái vật nào?");
+                                        for (Character k : cm.getList()) {
+                                            if (k.getType().equals("Monster")) {
+                                                k.display();
+                                            }
+                                        }
+                                        for (Character z : cm.getList()) {
+                                            if (z.getType().equals("Monster")) {
+                                                String nameAttack = sc.next();
+                                                if (z.getCharacterName().equals(nameAttack)) {
+                                                    isDead = cm.status(nameOut);
+                                                    if (isDead) {
+                                                        System.out.println(nameOut + " đã chết!");
+                                                        break;
+                                                    } else {
+                                                        System.out.println(nameAttack + " bị trừ " + dame + " máu.");
+                                                        double dameCounter = cm.attacked(nameAttack, dame);
+                                                        cm.attacked(nameOut, dameCounter);
+                                                    }
+                                                    isDead = cm.status(nameAttack);
+                                                    if (isDead) {
+                                                        System.out.println(nameAttack + " đã chết!");
+                                                    }
+                                                }
+                                                break;
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        System.out.println("Đang nghỉ ngơi!");
+                                        break;
+                                    case 3:
+                                        break;
+                                    default:
+                                        System.out.println("Không có chức năng này!");
+                                        break;
                                 }
-                                else {
-                                    System.out.println("Quái vật Dragon bị trừ " + dameMerlin + " máu.");
-                                    cm.biTanCong("Dragon", dameMerlin);
-                                }
-                                isSuccess = cm.status("Dragon");
-                                if (isSuccess) {
-                                    System.out.println("Quái vật đã chết!");
-                                }
-                                else {
-                                    double dameDragon1 = cm.fight("Dragon");
-                                    System.out.println("Bạn bị quái vật tấn công mất " + dameDragon1 + " máu.");
-                                    cm.biTanCong("Merlin", dameDragon1);
-                                }
-                                break;
                             }
-                            if (choice4 == 2) {
-                                isSuccess = cm.status("Merlin");
-                                if (isSuccess) {
-                                    System.out.println("Merlin đã chết!");
-                                    break;
+                            if (x.getType().equals("Mage")) {
+                                System.out.println("Bạn muốn làm gì?");
+                                System.out.println("1. Tấn công | 2. Hồi máu | 3. Tạo thêm nhân vật");
+                                int choice1 = sc.nextInt();
+                                switch (choice1) {
+                                    case 1:
+                                        System.out.println("Bạn muốn tấn công quái vật nào?");
+                                        for (Character k : cm.getList()) {
+                                            if (k.getType().equals("Monster")) {
+                                                k.display();
+                                            }
+                                        }
+                                        for (Character z : cm.getList()) {
+                                            if (z.getType().equals("Monster")) {
+                                                String nameAttack = sc.next();
+                                                if (z.getCharacterName().equals(nameAttack)) {
+                                                    isDead = cm.status(nameOut);
+                                                    if (isDead) {
+                                                        System.out.println(nameOut + " đã chết!");
+                                                        break;
+                                                    } else {
+                                                        System.out.println(nameAttack + " bị trừ " + dame + " máu.");
+                                                        double dameCounter = cm.attacked(nameAttack, dame);
+                                                        cm.attacked(nameOut, dameCounter);
+                                                    }
+                                                    isDead = cm.status(nameAttack);
+                                                    if (isDead) {
+                                                        System.out.println(nameAttack + " đã chết!");
+                                                    }
+                                                }
+                                                break;
+                                            }
+                                        }
+                                    case 2:
+                                        cm.recovery(nameOut);
+                                        break;
+                                    case 3:
+                                        break;
+                                    default:
+                                        System.out.println("Không có chức năng này!");
+                                        break;
                                 }
-                                else {
-                                    System.out.println("Quái vật Phoenix bị trừ " + dameMerlin + " máu.");
-                                    cm.biTanCong("Phoenix", dameMerlin);
-                                }
-                                isSuccess = cm.status("Phoenix");
-                                if (isSuccess) {
-                                    System.out.println("Quái vật đã chết!");
-                                }
-                                else {
-                                    double damePhoenix = cm.fight("Phoenix");
-                                    System.out.println("Bạn bị quái vật tấn công mất " + damePhoenix + " máu.");
-                                    cm.biTanCong("Merlin", damePhoenix);
-                                }
-                                break;
                             }
-                            else {
-                                System.out.println("Không có quái vật này!");
+                            if (x.getType().equals("Monster")) {
+                                System.out.println("Bạn muốn làm gì?");
+                                System.out.println("1. Tấn công | 2. Hồi sức | 3. Tạo thêm nhân vật");
+                                int choice1 = sc.nextInt();
+                                switch (choice1) {
+                                    case 1:
+                                        System.out.println("Bạn muốn tấn công nhân vật nào?");
+                                        System.out.println("1. Warrior | 2. Mage");
+                                        int choice2 = sc.nextInt();
+                                        if (choice2 == 1) {
+                                            System.out.println("Bạn muốn tấn công ai?");
+                                            for (Character k : cm.getList()) {
+                                                if (k.getType().equals("Warrior")) {
+                                                    k.display();
+                                                }
+                                            }
+                                            for (Character z : cm.getList()) {
+                                                if (z.getType().equals("Warrior")) {
+                                                    String nameAttack = sc.next();
+                                                    if (z.getCharacterName().equals(nameAttack)) {
+                                                        isDead = cm.status(nameOut);
+                                                        if (isDead) {
+                                                            System.out.println(nameOut + " đã chết!");
+                                                            break;
+                                                        } else {
+                                                            System.out.println(nameAttack + " bị trừ " + dame + " máu.");
+                                                            cm.attacked(nameAttack, dame);
+                                                        }
+                                                        isDead = cm.status(nameAttack);
+                                                        if (isDead) {
+                                                            System.out.println(nameAttack + " đã chết!");
+                                                        }
+                                                    }
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (choice2 == 2) {
+                                            System.out.println("Bạn muốn tấn công ai?");
+                                            for (Character k : cm.getList()) {
+                                                if (k.getType().equals("Mage")) {
+                                                    k.display();
+                                                }
+                                            }
+                                            for (Character i : cm.getList()) {
+                                                if (i.getType().equals("Mage")) {
+                                                    String nameAttack = sc.next();
+                                                    if (i.getCharacterName().equals(nameAttack)) {
+                                                        isDead = cm.status(nameOut);
+                                                        if (isDead) {
+                                                            System.out.println(nameOut + " đã chết!");
+                                                            break;
+                                                        } else {
+                                                            System.out.println(nameAttack + " bị trừ " + dame + " máu.");
+                                                            cm.attacked(nameAttack, dame);
+                                                        }
+                                                        isDead = cm.status(nameAttack);
+                                                        if (isDead) {
+                                                            System.out.println(nameAttack + " đã chết!");
+                                                        }
+                                                    }
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        System.out.println("Đang hồi sức!");
+                                        break;
+                                    case 3:
+                                        break;
+                                }
                             }
-                            break;
-                        case 2:
-                            cm.recovery("Merlin");
-                            break;
-                        case 3:
-                            cm.display();
-                            break;
+                        }
                     }
                     break;
                 case 3:
-                    System.out.println("Rút quân thành công!");
+                    System.out.println("Đang kết thúc trò chơi!");
                     break;
                 default:
                     System.out.println("Không có chức năng này!");
+                    break;
             }
         }while (choice != 3);
     }

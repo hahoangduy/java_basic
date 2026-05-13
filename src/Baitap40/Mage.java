@@ -4,8 +4,8 @@ public class Mage extends Character{
     private double mana;
     private double presentHP;
 
-    public Mage(String characterName, double maxHP, double attack, double mana) {
-        super(characterName, maxHP, attack);
+    public Mage(String characterName, double maxHP, double attack, double mana, String type) {
+        super(characterName, maxHP, attack, type);
         this.mana = mana;
         this.presentHP = maxHP;
     }
@@ -21,8 +21,8 @@ public class Mage extends Character{
     }
 
     @Override
-    public double biTancong(double dame) {
-        presentHP = presentHP - dame;
+    public double attacked(double dame) {
+        presentHP -= dame;
         return dame;
     }
 
@@ -54,6 +54,7 @@ public class Mage extends Character{
     @Override
     public String status() {
         if (presentHP <= 0) {
+            presentHP = 0;
             return "Đã chết";
         }
         return "Còn sống";
@@ -61,6 +62,6 @@ public class Mage extends Character{
 
     @Override
     public void display() {
-        System.out.println(getCharacterName() + " |HP: " + presentHP + " |Attack: " + getAttack() + " |Mana: " + mana);
+        System.out.println(getCharacterName() + " |Type: Mage" + " |HP: " + presentHP + " |Attack: " + getAttack() + " |Mana: " + mana);
     }
 }

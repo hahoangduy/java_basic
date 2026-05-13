@@ -30,16 +30,16 @@ public class CharacterManager {
     public double recovery(String name) {
         for (Character x : list) {
             if (name.equals(x.getCharacterName())) {
-                x.recovery();
+                return x.recovery();
             }
         }
         return 0;
     }
 
-    public double biTanCong(String name, double dame) {
+    public double attacked(String name, double dame) {
         for (Character x : list) {
             if (name.equals(x.getCharacterName())) {
-                return x.biTancong(dame);
+                return x.attacked(dame);
             }
         }
         return 0;

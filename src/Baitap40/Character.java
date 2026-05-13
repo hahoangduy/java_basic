@@ -4,13 +4,14 @@ public abstract class Character {
     private String characterName;
     private double maxHP;
 
-
+    private String type;
     private double attack;
 
-    public Character(String characterName, double maxHP, double attack) {
+    public Character(String characterName, double maxHP, double attack, String type) {
         this.characterName = characterName;
         this.maxHP = maxHP;
         this.attack = attack;
+        this.type = type;
     }
 
     public String getCharacterName() {
@@ -26,10 +27,12 @@ public abstract class Character {
         return attack;
     }
 
-
+    public String getType() {
+        return type;
+    }
     public abstract double fight();
 
-    public abstract double biTancong(double dame);
+    public abstract double attacked(double dame);
 
     public abstract double recovery();
     public abstract String status();
