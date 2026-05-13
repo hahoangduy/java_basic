@@ -111,9 +111,9 @@ public class Test {
                                                 k.display();
                                             }
                                         }
+                                        String nameAttack = sc.next();
                                         for (Character z : cm.getList()) {
                                             if (z.getType().equals("Monster")) {
-                                                String nameAttack = sc.next();
                                                 if (z.getCharacterName().equals(nameAttack)) {
                                                     isDead = cm.status(nameOut);
                                                     if (isDead) {
@@ -129,7 +129,6 @@ public class Test {
                                                         System.out.println(nameAttack + " đã chết!");
                                                     }
                                                 }
-                                                break;
                                             }
                                         }
                                         break;
@@ -155,9 +154,9 @@ public class Test {
                                                 k.display();
                                             }
                                         }
+                                        String nameAttack = sc.next();
                                         for (Character z : cm.getList()) {
                                             if (z.getType().equals("Monster")) {
-                                                String nameAttack = sc.next();
                                                 if (z.getCharacterName().equals(nameAttack)) {
                                                     isDead = cm.status(nameOut);
                                                     if (isDead) {
@@ -173,9 +172,9 @@ public class Test {
                                                         System.out.println(nameAttack + " đã chết!");
                                                     }
                                                 }
-                                                break;
                                             }
                                         }
+                                        break;
                                     case 2:
                                         cm.recovery(nameOut);
                                         break;
@@ -202,9 +201,9 @@ public class Test {
                                                     k.display();
                                                 }
                                             }
+                                            String nameAttack = sc.next();
                                             for (Character z : cm.getList()) {
                                                 if (z.getType().equals("Warrior")) {
-                                                    String nameAttack = sc.next();
                                                     if (z.getCharacterName().equals(nameAttack)) {
                                                         isDead = cm.status(nameOut);
                                                         if (isDead) {
@@ -219,7 +218,6 @@ public class Test {
                                                             System.out.println(nameAttack + " đã chết!");
                                                         }
                                                     }
-                                                    break;
                                                 }
                                             }
                                         }
@@ -230,9 +228,9 @@ public class Test {
                                                     k.display();
                                                 }
                                             }
+                                            String nameAttack = sc.next();
                                             for (Character i : cm.getList()) {
                                                 if (i.getType().equals("Mage")) {
-                                                    String nameAttack = sc.next();
                                                     if (i.getCharacterName().equals(nameAttack)) {
                                                         isDead = cm.status(nameOut);
                                                         if (isDead) {
@@ -247,7 +245,6 @@ public class Test {
                                                             System.out.println(nameAttack + " đã chết!");
                                                         }
                                                     }
-                                                    break;
                                                 }
                                             }
                                         }
