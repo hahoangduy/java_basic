@@ -1,28 +1,29 @@
 package Baitap44;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class Store {
-    private HashMap<String, Product> productList = new HashMap<>();
-    private HashMap<String, Customer> customerList = new HashMap<>();
+    private ArrayList<Product> productList = new ArrayList<>();
+    private ArrayList<Customer> customerList = new ArrayList<>();
 
     public Store() {
     }
 
-    public HashMap<String, Product> getProductList() {
+    public ArrayList<Product> getProductList() {
         return productList;
     }
 
-    public HashMap<String, Customer> getCustomerList() {
+    public ArrayList<Customer> getCustomerList() {
         return customerList;
     }
 
     public void addProduct(Product p) {
-        productList.put(p.getProductName(), p);
+        productList.add(p);
     }
     public void addCustomer(Customer c) {
-        customerList.put(c.getCustomerName(), c);
+        customerList.add(c);
     }
 
     public boolean checkWarehouse(Product product, int quantity) {
@@ -36,20 +37,28 @@ public class Store {
         }
     }
     public void displayProduct() {
-        for (String key : productList.keySet()) {
-            Product value = productList.get(key);
-            value.display();
+        for (Product product : productList) {
+            product.display();
             System.out.println("");
         }
     }
     public void displayCustomer() {
-        for (String key : customerList.keySet()) {
-            Customer value = customerList.get(key);
-            value.display();
+        for (Customer customer : customerList) {
+            customer.display();
+        }
+    }
+    public void listBill() {
+        customerList.sort(Comparator.comparing(Customer::finalTotal).reversed());
+        for (Customer customer : customerList) {
+            System.out.print("Khách hàng: ");
+            customer.display();
+            System.out.println("Hóa đơn: " + customer.finalTotal());
         }
     }
 
-    public void calculateBill(Order order) {
-
+    public void highestBill() {
+        customerList.sort(Comparator.comparing(Customer::finalTotal).reversed());
+        Customer customer = customerList.get(0);
+        System.out.println("Khách hàng có hóa đơn cao nhất: " + customer.getCustomerName() + " | Hóa đơn: " + customer.finalTotal());
     }
 }

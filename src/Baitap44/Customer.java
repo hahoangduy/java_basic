@@ -22,6 +22,10 @@ public abstract class Customer {
         return customerPhoneNumber;
     }
 
+    public ArrayList<Order> getCart() {
+        return cart;
+    }
+
     public void setCart(ArrayList<Order> cart) {
         this.cart = cart;
     }

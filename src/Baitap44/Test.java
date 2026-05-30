@@ -84,17 +84,17 @@ public class Test {
         Store store = new Store();
         int choice;
         int choice4;
-        Product ED1 = new ElectronicDevices("ED1","Laptop Dell", 20000000, 10, 24);
+        Product ED1 = new ElectronicDevices("ED1","Laptop Dell", 200000, 10, 24);
         store.addProduct(ED1);
-        Product ED2 = new ElectronicDevices("ED2","Iphone 17", 30000000, 10, 12);
+        Product ED2 = new ElectronicDevices("ED2","Iphone 17", 300000, 10, 12);
         store.addProduct(ED2);
-        Product EA1 = new ElectricalAppliances("EA1", "Tủ lạnh LG", 5000000, 10, 15);
+        Product EA1 = new ElectricalAppliances("EA1", "Tủ lạnh LG", 50000, 10, 15);
         store.addProduct(EA1);
-        Product EA2 = new ElectricalAppliances("EA2", "Tivi Soni", 10000000, 10, 10);
+        Product EA2 = new ElectricalAppliances("EA2", "Tivi Soni", 100000, 10, 10);
         store.addProduct(EA2);
         do {
             System.out.println("-----   THẾ GIỚI DI ĐỘNG   -----");
-            System.out.println("1. Tạo khách hàng | 2. Thêm sản phẩm vào giỏ hàng | 3. Tính tiền | 4. Kho hàng | 5. Danh sách hóa đơn | 6. Hóa đơn khách hàng mua nhiều sản phẩm nhất");
+            System.out.println("1. Tạo khách hàng |2. Thêm sản phẩm vào giỏ hàng |3. Tính tiền |4. Kho hàng |5.Danh sách hóa đơn |6. Hóa đơn khách hàng mua nhiều sản phẩm nhất |7. Thoát");
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
@@ -102,7 +102,7 @@ public class Test {
                     String customerName = sc.next();
                     System.out.println("Số điện thoại: ");
                     int customerPhoneNumber = sc.nextInt();
-                    System.out.println("1. Khách hàng cơ bản | 2. Khách hàng VIP");
+                    System.out.println("1. Khách hàng cơ bản |2. Khách hàng VIP");
                     int choice1 = sc.nextInt();
                     if (choice1 == 1) {
                         store.addCustomer(new StandardCustomer("SC", customerName, customerPhoneNumber));
@@ -116,73 +116,99 @@ public class Test {
                     store.displayCustomer();
                     System.out.println("Nhập tên khách hàng: ");
                     String customerNameInput = sc.next();
-                    Customer customer = store.getCustomerList().get(customerNameInput);
-                    if (store.getCustomerList().containsKey(customerNameInput)) {
-                        do {
-                            System.out.println("1. Thiết bị điện tử | 2. Hàng điện gia dụng");
-                            int choice2 = sc.nextInt();
-                            if (choice2 == 1) {
-                                System.out.println("1. Laptop Dell - 20.000.000 VNĐ - BH 24 tháng | 2. Iphone 17 - 30.000.000 VNĐ - BH 12 tháng");
-                                int choice3 = sc.nextInt();
-                                if (choice3 == 1) {
-                                    System.out.println("Nhập số lượng sản phẩm: ");
-                                    int quantity = sc.nextInt();
-                                    if (store.checkWarehouse(ED1, quantity)) {
-                                        Order order = new Order(ED1, quantity);
-                                        cart.add(order);
-                                        customer.setCart(cart);
-                                    }
-                                }
-                                else if (choice2 == 2) {
-                                    System.out.println("Nhập số lượng sản phẩm: ");
-                                    int quantity = sc.nextInt();
-                                    if (store.checkWarehouse(ED2, quantity)) {
-                                        Order order = new Order(ED2, quantity);
-                                        cart.add(order);
-                                        customer.setCart(cart);
-                                    }
-                                }
-                            } else if (choice2 == 2) {
-                                System.out.println("1. Tủ lạnh LG - 5.000.000 VNĐ - 15kg | 2. Tivi Soni - 10.000.000 - 10kg");
-                                int choice3 = sc.nextInt();
-                                if (choice3 == 1) {
-                                    System.out.println("Nhập số lượng sản phẩm: ");
-                                    int quantity = sc.nextInt();
-                                    if (store.checkWarehouse(EA1, quantity)) {
-                                        Order order = new Order(EA1, quantity);
-                                        cart.add(order);
-                                        customer.setCart(cart);
-                                    }
-                                } else if (choice2 == 2) {
-                                    System.out.println("Nhập số lượng sản phẩm: ");
-                                    int quantity = sc.nextInt();
-                                    if (store.checkWarehouse(EA2, quantity)) {
-                                        Order order = new Order(EA2, quantity);
-                                        cart.add(order);
-                                        customer.setCart(cart);
-                                    }
+                    Customer customer = null;
+                    for (Customer customer1 : store.getCustomerList()) {
+                        if (customer1.getCustomerName().equals(customerNameInput)) {
+                            customer = customer1;
+                            break;
+                        }
+                    }
+                    if (customer == null) {
+                        System.out.println("Không có khách hàng này!");
+                        break;
+                    }
+                    do {
+                        System.out.println("1. Thiết bị điện tử |2. Hàng điện gia dụng");
+                        int choice2 = sc.nextInt();
+                        if (choice2 == 1) {
+                            System.out.println("1. Laptop Dell - 20.000.000 VNĐ - BH 24 tháng |2. Iphone 17 - 30.000.000 VNĐ - BH 12 tháng");
+                            int choice3 = sc.nextInt();
+                            if (choice3 == 1) {
+                                System.out.println("Nhập số lượng sản phẩm: ");
+                                int quantity = sc.nextInt();
+                                if (store.checkWarehouse(ED1, quantity)) {
+                                    Order order = new Order(ED1, quantity);
+                                    cart.add(order);
+                                    customer.setCart(cart);
                                 }
                             }
-                            System.out.println("1.Thêm tiếp | 2. Thoát");
-                            choice4 = sc.nextInt();
-                        }while (choice4 != 2);
-                    }
+                            else if (choice3 == 2) {
+                                System.out.println("Nhập số lượng sản phẩm: ");
+                                int quantity = sc.nextInt();
+                                if (store.checkWarehouse(ED2, quantity)) {
+                                    Order order = new Order(ED2, quantity);
+                                    cart.add(order);
+                                    customer.setCart(cart);
+                                }
+                            }
+                        } else if (choice2 == 2) {
+                            System.out.println("1. Tủ lạnh LG - 5.000.000 VNĐ - 15kg |2. Tivi Soni - 10.000.000 - 10kg");
+                            int choice3 = sc.nextInt();
+                            if (choice3 == 1) {
+                                System.out.println("Nhập số lượng sản phẩm: ");
+                                int quantity = sc.nextInt();
+                                if (store.checkWarehouse(EA1, quantity)) {
+                                    Order order = new Order(EA1, quantity);
+                                    cart.add(order);
+                                    customer.setCart(cart);
+                                }
+                            }
+                            else if (choice3 == 2) {
+                                System.out.println("Nhập số lượng sản phẩm: ");
+                                int quantity = sc.nextInt();
+                                if (store.checkWarehouse(EA2, quantity)) {
+                                    Order order = new Order(EA2, quantity);
+                                    cart.add(order);
+                                    customer.setCart(cart);
+                                }
+                            }
+                        }
+                        System.out.println("1.Thêm tiếp | 2. Thoát");
+                        choice4 = sc.nextInt();
+                    }while (choice4 != 2);
                     break;
                 case 3:
                     store.displayCustomer();
                     System.out.println("Nhập tên khách hàng: ");
                     String customerNameInput1 = sc.next();
-                    Customer customer1 = store.getCustomerList().get(customerNameInput1);
-                    if (store.getCustomerList().containsKey(customerNameInput1)) {
-                        customer1.displayProduct();
-                        System.out.println("Hóa đơn của khách hàng " + customerNameInput1 + " là: " + customer1.finalTotal() + " VNĐ.");
+                    Customer customer2 = null;
+                    for (Customer customer3 : store.getCustomerList()) {
+                        if (customer3.getCustomerName().equals(customerNameInput1)) {
+                            customer2 = customer3;
+                            break;
+                        }
                     }
+                    if (customer2 == null) {
+                        System.out.println("Không có khách hàng này!");
+                        break;
+                    }
+                    customer2.displayProduct();
+                    System.out.println("Hóa đơn của khách hàng " + customerNameInput1 + " là: " + customer2.finalTotal() + " VNĐ.");
                     break;
                 case 4:
                     store.displayProduct();
                     break;
                 case 5:
-
+                    store.listBill();
+                    break;
+                case 6:
+                    store.highestBill();
+                    break;
+                case 7:
+                    System.out.println("Đang thoát...");
+                    break;
+                default:
+                    System.out.println("Không có chức năng này!");
             }
         }while (choice != 7);
     }
