@@ -6,22 +6,44 @@ public class CheckingAccount extends Account{
     }
 
     @Override
-    public int transactionIn(int transactionAmount) {
+    public int transactionIn(Account accFrom, int transactionAmount) {
         int total = getBalance() + transactionAmount;
         setBalance(total);
         return getBalance();
     }
 
     @Override
-    public int tracsactionOut(int transactionAmount) {
+    public int tracsactionOut(Account accTo, int transactionAmount) {
         int SystemMaintenanceFee = 10000;
-        int total = (getBalance() - transactionAmount) + SystemMaintenanceFee;
-        setBalance(total);
-        return getBalance();
+        if (getBalance() >= (transactionAmount + SystemMaintenanceFee)) {
+            int total = getBalance() - (transactionAmount + SystemMaintenanceFee);
+            setBalance(total);
+            return SystemMaintenanceFee;
+        }
+        else {
+            return 0;
+        }
+    }
+
+    @Override
+    public boolean withdrawMoney(int transactionAmount) {
+        if (getBalance() >= transactionAmount) {
+            int total = getBalance() - transactionAmount;
+            setBalance(total);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    @Override
+    public String getAccountType() {
+        return "Checking account";
     }
 
     @Override
     public void display() {
-        System.out.println("Account number: " + getAccountNumber() + " |Balance: " + getBalance());
+        System.out.println("Account number: " + getAccountNumber() + " |Type: " + getAccountType() + " |Balance: " + getBalance());
     }
 }

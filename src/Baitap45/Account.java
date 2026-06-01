@@ -1,11 +1,9 @@
 package Baitap45;
 
-import java.util.HashMap;
 
 public abstract class Account {
     private String accountNumber;
     private int balance;
-    private HashMap<String, Transfer> transactionHistory;
 
     public Account(String accountNumber, int balance) {
         this.accountNumber = accountNumber;
@@ -20,15 +18,14 @@ public abstract class Account {
         return balance;
     }
 
-
     public void setBalance(int balance) {
         this.balance = balance;
     }
-    public void addHistory(Transfer t) {
-        transactionHistory.put(t.getTransferID(), t);
-    }
 
-    public abstract int transactionIn(int transactionAmount);
-    public abstract int tracsactionOut(int transactionAmount);
+
+    public abstract int transactionIn(Account accFrom, int transactionAmount);
+    public abstract int tracsactionOut(Account accTo, int transactionAmount);
+    public abstract boolean withdrawMoney(int transactionAmount);
+    public abstract String getAccountType();
     public abstract void display();
 }

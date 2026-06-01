@@ -1,5 +1,7 @@
 package Baitap45;
 
+import java.util.Scanner;
+
 public class Test {
     public static void main(String[] args) {
         /*
@@ -124,5 +126,67 @@ public class Test {
                 [GD4][Thất bại] Chuyển khoản: 2.000.000 VNĐ | Lý do: Tính năng bị cấm.
             [GD5][Thất bại] Rút tiền mặt: 105.970.000 VNĐ | Lý do: Không đủ số dư tối thiểu.
             [GD6][Thành công] Cộng tiền lãi 6 tháng: +3.180.000 VNĐ*/
+
+        Customer A = new Customer("A100", "Nguyen Van A", 124221);
+        Customer B = new Customer("B200", "Tran Thi B", 125151);
+        A.addAccount(new CheckingAccount("A1", 5000000));
+        A.addAccount(new CreditAccount("A2", 0, 2000000));
+        B.addAccount(new SavingsAccount("B1", 500000, 0.06));
+        BankManager bankManager = new BankManager();
+        bankManager.addCustomer(A);
+        bankManager.addCustomer(B);
+        Scanner sc = new Scanner(System.in);
+        int choice;
+        do {
+            System.out.println("===== NGÂN HÀNG VIETCOMBANK =====");
+            System.out.println("1. Xem số dư |2. Rút tiền |3. Chuyển tiền |4. Xem lịch sử |5. Xem lãi thẻ tiết kiệm |6. Thoát");
+            System.out.println("Chọn chức năng: ");
+            choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("Nhập STK: ");
+                    String num = sc.next();
+                    Account acc = bankManager.searchAccount(num);
+                    if (acc != null) {
+                        acc.display();
+                    } else {
+                        System.out.println("Không tìm thấy tài khoản.");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Nhập STK rút: ");
+                    String wNum = sc.next();
+                    System.out.println("Số tiền rút: ");
+                    int wAmount = sc.nextInt();
+                    bankManager.withdraw(wNum, wAmount);
+                    break;
+                case 3:
+                    System.out.println("Nhập STK chuyển: ");
+                    String fNum = sc.next();
+                    System.out.println("Nhập STK nhận: ");
+                    String tNum = sc.next();
+                    System.out.print("Số tiền chuyển: ");
+                    int tAmount = sc.nextInt();
+                    bankManager.transfer(fNum, tNum, tAmount);
+                    break;
+                case 4:
+                    for (Transfer t : bankManager.getTransferList()) {
+                        t.display();
+                    }
+                    break;
+                case 5:
+                    System.out.print("Nhập STK: ");
+                    String inputAcc = sc.next();
+                    System.out.print("Nhập số tháng đã gửi tiết kiệm: ");
+                    int inputMonths = sc.nextInt();
+                    bankManager.calculateInterest(inputAcc, inputMonths);
+                    break;
+                case 6:
+                    System.out.println("Đang thoát...");
+                    break;
+                default:
+                    System.out.println("Không có chức năng này!");
+            }
+        } while (choice != 6);
     }
 }

@@ -12,6 +12,7 @@ public class Customer {
         this.CIF = CIF;
         this.name = name;
         this.phoneNumber = phoneNumber;
+        this.bankAccountList = new HashMap<>();
     }
 
     public String getCIF() {
@@ -20,10 +21,6 @@ public class Customer {
 
     public String getName() {
         return name;
-    }
-
-    public int getPhoneNumber() {
-        return phoneNumber;
     }
 
     public HashMap<String, Account> getBankAccountList() {
@@ -35,6 +32,6 @@ public class Customer {
     }
 
     public void display() {
-        System.out.println("CIF id: " + getCIF() + " |Name: " + getName());
+        System.out.println("Name: " + getName());
     }
 }
