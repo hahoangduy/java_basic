@@ -15,6 +15,10 @@ public class Customer {
         this.bankAccountList = new HashMap<>();
     }
 
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
     public String getCIF() {
         return CIF;
     }
@@ -32,6 +36,12 @@ public class Customer {
     }
 
     public void display() {
-        System.out.println("Name: " + getName());
+        System.out.println("Name: " + getName() + " |Phone number: " + getPhoneNumber());
+    }
+
+    public void displayAccount() {
+        for (Account account : bankAccountList.values()) {
+            account.display();
+        }
     }
 }

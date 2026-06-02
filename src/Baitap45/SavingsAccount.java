@@ -13,14 +13,14 @@ public class SavingsAccount extends Account{
     }
 
     @Override
-    public int transactionIn(Account accFrom, int transactionAmount) {
+    public int transactionIn(int transactionAmount) {
         int total = getBalance() + transactionAmount;
         setBalance(total);
         return getBalance();
     }
 
     @Override
-    public int tracsactionOut(Account accTo, int transactionAmount) {
+    public int tracsactionOut(int transactionAmount) {
         return -1;
     }
 
@@ -50,6 +50,6 @@ public class SavingsAccount extends Account{
 
     @Override
     public void display() {
-        System.out.println("Account number: " + getAccountNumber() + " |Type: " + getAccountType() + " |Balance: " + getBalance());
+        System.out.println("Account number: " + getAccountNumber() + " |Type: " + getAccountType() + " |Balance: " + getBalance() + " VNĐ.");
     }
 }

@@ -18,10 +18,23 @@ public class BankManager {
         return transferList;
     }
 
+    public HashMap<String, Customer> getCustomerList() {
+        return customerList;
+    }
+
     public Account searchAccount(String accNum) {
         for (Customer c : customerList.values()) {
             if (c.getBankAccountList().containsKey(accNum)) {
                 return c.getBankAccountList().get(accNum);
+            }
+        }
+        return null;
+    }
+
+    public Customer searchCustomer(String cusName) {
+        for (Customer c : customerList.values()) {
+            if (c.getName().equals(cusName)) {
+                return c;
             }
         }
         return null;
@@ -41,11 +54,11 @@ public class BankManager {
             System.out.println("Thất bại: Tính năng bị cấm!");
             transferList.add(new Transfer("Chuyển khoản", accFrom, accTo, amount, 0, "Thất bại (Tính năng bị cấm)"));
         }
-        double fee = accFrom1.tracsactionOut(accTo1, amount);
+        int fee = accFrom1.tracsactionOut(amount);
         if (fee != 0) {
             System.out.println("Chuyển khoản thành công!");
             System.out.println("Phí giao dịch: " + fee + " |Số dư hiện tại: " + accFrom1.getBalance());
-            accTo1.transactionIn(accFrom1, amount);
+            accTo1.transactionIn(amount);
             transferList.add(new Transfer("Chuyển khoản",accFrom, accTo, amount, fee, "Thành công"));
         }
         else {
@@ -86,6 +99,12 @@ public class BankManager {
             System.out.println("Lãi xuất ngân hàng: " + savingsAcc.getInterestRate() * 100 + "%");
             System.out.println("Tổng tiền lãi nhận được: " + interestEarned + " VNĐ");
             System.out.println("Số dư mới sau khi cộng lãi: " + savingsAcc.getBalance() + " VNĐ");
+        }
+    }
+
+    public void displayCustomer() {
+        for (Customer customer : customerList.values()) {
+            customer.display();
         }
     }
 }

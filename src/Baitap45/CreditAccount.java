@@ -9,14 +9,14 @@ public class CreditAccount extends Account{
     }
 
     @Override
-    public int transactionIn(Account accFrom, int transactionAmount) {
+    public int transactionIn(int transactionAmount) {
         int total = getBalance() + transactionAmount;
         setBalance(total);
         return getBalance();
     }
 
     @Override
-    public int tracsactionOut(Account accTo, int transactionAmount) {
+    public int tracsactionOut(int transactionAmount) {
         int SystemMaintenanceFee = (int) (transactionAmount * 0.04);
         int total = transactionAmount + SystemMaintenanceFee;
         if ((getBalance() - total) >= -creditLimit) {
@@ -46,6 +46,6 @@ public class CreditAccount extends Account{
 
     @Override
     public void display() {
-        System.out.println("Account number: " + getAccountNumber() + " |Type: " + getAccountType() + " |Balance: " + getBalance());
+        System.out.println("Account number: " + getAccountNumber() + " |Type: " + getAccountType() + " |Balance: " + getBalance() + " VNĐ.");
     }
 }

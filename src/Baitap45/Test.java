@@ -125,13 +125,16 @@ public class Test {
                 [GD2][Thành công] Nhận tiền từ TK_A2: +5.000.000 VNĐ
                 [GD4][Thất bại] Chuyển khoản: 2.000.000 VNĐ | Lý do: Tính năng bị cấm.
             [GD5][Thất bại] Rút tiền mặt: 105.970.000 VNĐ | Lý do: Không đủ số dư tối thiểu.
-            [GD6][Thành công] Cộng tiền lãi 6 tháng: +3.180.000 VNĐ*/
+            [GD6][Thành công] Cộng tiền lãi 6 tháng: +3.180.000 VNĐ
 
-        Customer A = new Customer("A100", "Nguyen Van A", 124221);
-        Customer B = new Customer("B200", "Tran Thi B", 125151);
+            hiện tất cả thông tin của Customer*/
+
+        Customer A = new Customer("A100", "Long", 124221);
+        Customer B = new Customer("B200", "Duy", 125151);
         A.addAccount(new CheckingAccount("A1", 5000000));
         A.addAccount(new CreditAccount("A2", 0, 2000000));
-        B.addAccount(new SavingsAccount("B1", 500000, 0.06));
+        B.addAccount(new CheckingAccount("B1", 3000000));
+        B.addAccount(new SavingsAccount("B2", 500000, 0.06));
         BankManager bankManager = new BankManager();
         bankManager.addCustomer(A);
         bankManager.addCustomer(B);
@@ -139,7 +142,7 @@ public class Test {
         int choice;
         do {
             System.out.println("===== NGÂN HÀNG VIETCOMBANK =====");
-            System.out.println("1. Xem số dư |2. Rút tiền |3. Chuyển tiền |4. Xem lịch sử |5. Xem lãi thẻ tiết kiệm |6. Thoát");
+            System.out.println("1. Xem số dư |2. Rút tiền |3. Chuyển tiền |4. Xem lịch sử |5. Xem lãi thẻ tiết kiệm |6. Tìm khách hàng |7. Thoát");
             System.out.println("Chọn chức năng: ");
             choice = sc.nextInt();
             switch (choice) {
@@ -163,11 +166,16 @@ public class Test {
                 case 3:
                     System.out.println("Nhập STK chuyển: ");
                     String fNum = sc.next();
+                    Account account = bankManager.searchAccount(fNum);
                     System.out.println("Nhập STK nhận: ");
                     String tNum = sc.next();
+                    Account account1 = bankManager.searchAccount(tNum);
                     System.out.print("Số tiền chuyển: ");
                     int tAmount = sc.nextInt();
                     bankManager.transfer(fNum, tNum, tAmount);
+                    int fee = 10000;
+                    account.addTransfer(new Transfer("Chuyển khoản",fNum, tNum, tAmount, fee, "Thành công"));
+                    account1.addTransfer(new Transfer("Nhận tiền",fNum, tNum, tAmount, fee, "Thành công"));
                     break;
                 case 4:
                     for (Transfer t : bankManager.getTransferList()) {
@@ -182,11 +190,26 @@ public class Test {
                     bankManager.calculateInterest(inputAcc, inputMonths);
                     break;
                 case 6:
+                    bankManager.displayCustomer();
+                    System.out.println("Nhập tên khách hàng: ");
+                    String nCus = sc.next();
+                    Customer customer = bankManager.searchCustomer(nCus);
+                    if (customer != null) {
+                        customer.displayAccount();
+                        System.out.println("Nhập STK: ");
+                        String STK = sc.next();
+                        Account account2 = customer.getBankAccountList().get(STK);
+                        System.out.println("Lịch sử giao dịch: ");
+                        account2.displayTransfer();
+                        account2.display();
+                    }
+                    break;
+                case 7:
                     System.out.println("Đang thoát...");
                     break;
                 default:
                     System.out.println("Không có chức năng này!");
             }
-        } while (choice != 6);
+        } while (choice != 7);
     }
 }

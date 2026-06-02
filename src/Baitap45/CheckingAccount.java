@@ -6,14 +6,14 @@ public class CheckingAccount extends Account{
     }
 
     @Override
-    public int transactionIn(Account accFrom, int transactionAmount) {
+    public int transactionIn(int transactionAmount) {
         int total = getBalance() + transactionAmount;
         setBalance(total);
         return getBalance();
     }
 
     @Override
-    public int tracsactionOut(Account accTo, int transactionAmount) {
+    public int tracsactionOut(int transactionAmount) {
         int SystemMaintenanceFee = 10000;
         if (getBalance() >= (transactionAmount + SystemMaintenanceFee)) {
             int total = getBalance() - (transactionAmount + SystemMaintenanceFee);
@@ -44,6 +44,6 @@ public class CheckingAccount extends Account{
 
     @Override
     public void display() {
-        System.out.println("Account number: " + getAccountNumber() + " |Type: " + getAccountType() + " |Balance: " + getBalance());
+        System.out.println("Account number: " + getAccountNumber() + " |Type: " + getAccountType() + " |Balance: " + getBalance() + " VNĐ.");
     }
 }
