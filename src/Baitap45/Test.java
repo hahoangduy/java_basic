@@ -166,18 +166,14 @@ public class Test {
                 case 3:
                     System.out.println("Nhập STK chuyển: ");
                     String fNum = sc.next();
-                    Account account = bankManager.searchAccount(fNum);
                     System.out.println("Nhập STK nhận: ");
                     String tNum = sc.next();
-                    Account account1 = bankManager.searchAccount(tNum);
                     System.out.print("Số tiền chuyển: ");
                     int tAmount = sc.nextInt();
                     bankManager.transfer(fNum, tNum, tAmount);
-                    int fee = 10000;
-                    account.addTransfer(new Transfer("Chuyển khoản",fNum, tNum, tAmount, fee, "Thành công"));
-                    account1.addTransfer(new Transfer("Nhận tiền",fNum, tNum, tAmount, fee, "Thành công"));
                     break;
                 case 4:
+                    System.out.println("Lịch sử giao dịch: ");
                     for (Transfer t : bankManager.getTransferList()) {
                         t.display();
                     }

@@ -45,14 +45,17 @@ public class BankManager {
         if (accFrom == null) {
             System.out.println("Thất bại: Không tìm thấy tài khoản này!");
             transferList.add(new Transfer("Chuyển khoản", accFrom, accTo, amount, 0, "Thất bại (Sai TK chuyển)"));
+            accFrom1.addTransfer(new Transfer("Chuyển khoản",accFrom, accTo, amount, 0, "Thất bại (Sai TK chuyển)"));
         }
         if (accTo == null) {
             System.out.println("Thất bại: Tài khoản nhận không tồn tại!");
             transferList.add(new Transfer("Chuyển khoản", accFrom, accTo, amount, 0, "Thất bại (Sai TK nhận)"));
+            accTo1.addTransfer(new Transfer("Chuyển khoản", accFrom, accTo, amount, 0, "Thất bại (Sai TK nhận)"));
         }
         if (accFrom1.getAccountType().equals("Savings account")) {
             System.out.println("Thất bại: Tính năng bị cấm!");
             transferList.add(new Transfer("Chuyển khoản", accFrom, accTo, amount, 0, "Thất bại (Tính năng bị cấm)"));
+            accFrom1.addTransfer(new Transfer("Chuyển khoản", accFrom, accTo, amount, 0, "Thất bại (Tính năng bị cấm)"));
         }
         int fee = accFrom1.tracsactionOut(amount);
         if (fee != 0) {
@@ -60,10 +63,13 @@ public class BankManager {
             System.out.println("Phí giao dịch: " + fee + " |Số dư hiện tại: " + accFrom1.getBalance());
             accTo1.transactionIn(amount);
             transferList.add(new Transfer("Chuyển khoản",accFrom, accTo, amount, fee, "Thành công"));
+            accFrom1.addTransfer(new Transfer("Chuyển khoản",accFrom, accTo, amount, fee, "Thành công"));
+            accTo1.addTransfer(new Transfer("Nhận tiền",accFrom, accTo, amount, fee, "Thành công"));
         }
         else {
             System.out.println("Thất bại: Số dư không đủ!");
             transferList.add(new Transfer("Chuyển khoản", accFrom, accTo, amount, 0, "Thất bại (Số dư không đủ)"));
+            accFrom1.addTransfer(new Transfer("Chuyển khoản", accFrom, accTo, amount, 0, "Thất bại (Số dư không đủ)"));
         }
     }
 
@@ -72,16 +78,19 @@ public class BankManager {
         if (acc == null) {
             System.out.println("Thất bại: Không tìm thấy tài khoản này!");
             transferList.add(new Transfer("Rút tiền", accNum, "Null", amount, 0, "Thất bại (Sai STK)"));
+            acc.addTransfer(new Transfer("Rút tiền", accNum, "Null", amount, 0, "Thất bại (Sai STK)"));
             return;
         }
         boolean success = acc.withdrawMoney(amount);
         if (!success) {
             System.out.println("Thất bại: Số dư không đủ!");
             transferList.add(new Transfer("Rút tiền", accNum, "Null", amount, 0, "Thất bại (Số dư không đủ)"));
+            acc.addTransfer(new Transfer("Rút tiền", accNum, "Null", amount, 0, "Thất bại (Số dư không đủ)"));
         } else {
             System.out.println("Rút tiền thành công!");
             System.out.println("Số dư còn lại: " + acc.getBalance());
             transferList.add(new Transfer("Rút tiền", accNum, "Null", amount, 0, "Thành công"));
+            acc.addTransfer(new Transfer("Rút tiền", accNum, "Null", amount, 0, "Thành công"));
         }
     }
     public void calculateInterest(String accNum, int months) {
