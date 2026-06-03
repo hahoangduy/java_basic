@@ -1,5 +1,7 @@
 package Baitap46;
 
+import java.util.Scanner;
+
 public class Test {
     public static void main(String[] args) {
         /*
@@ -65,6 +67,11 @@ public class Test {
         + Số lượng khách chuẩn bị bay thực tế (Số vé còn hiệu lực).
         + Doanh thu của chuyến bay đó.
         - Tính và in ra TỔNG DOANH THU của toàn bộ Hãng hàng không.*/
+
+        Scanner sc = new Scanner(System.in);
+        VietSkyManager vietSkyManager = new VietSkyManager();
+        vietSkyManager.addFlight("VS111", "SGN-HAN", 1000000, 2);
+        vietSkyManager.addFlight("VS222", "SGN-DAD", 800000, 50);
 
 
     }
