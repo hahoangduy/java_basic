@@ -40,6 +40,6 @@ public class Economy extends Ticket{
 
     @Override
     public void display() {
-
+        System.out.println("Type: " + getTicketType() + " |Base price: " + getBasePrice());
     }
 }

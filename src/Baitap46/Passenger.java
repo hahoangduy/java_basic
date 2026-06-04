@@ -13,4 +13,8 @@ public class Passenger {
 
     public String getId() { return id; }
     public String getName() { return name; }
+
+    public void display() {
+        System.out.println("ID: " + getId() + " |Name: " + getName());
+    }
 }

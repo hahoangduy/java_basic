@@ -30,6 +30,6 @@ public class Business extends Ticket{
 
     @Override
     public void display() {
-
+        System.out.println("Type: " + getTicketType() + " |Base price: " + getBasePrice());
     }
 }

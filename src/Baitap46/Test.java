@@ -70,9 +70,84 @@ public class Test {
 
         Scanner sc = new Scanner(System.in);
         VietSkyManager vietSkyManager = new VietSkyManager();
-        vietSkyManager.addFlight("VS111", "SGN-HAN", 1000000, 2);
-        vietSkyManager.addFlight("VS222", "SGN-DAD", 800000, 50);
-
-
+        int choice;
+        do {
+            System.out.println("===== HỆ THỐNG PHẦN MỀM VIETSKY =====");
+            System.out.println("1. Thêm chuyến bay mới |2. Đặt vé máy bay |3. Hủy vé máy bay |4. Xuất báo cáo doanh thu tổng hợp |5. Thoát chương trình");
+            System.out.println("Mời chọn chức năng: ");
+            choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("Nhập mã chuyến bay: ");
+                    String code = sc.next();
+                    System.out.println("Nhập giá vé cơ sở: ");
+                    int basePrice = sc.nextInt();
+                    System.out.println("Nhập sức chứa tối đa: ");
+                    int capacity = sc.nextInt();
+                    if (vietSkyManager.addFlight(code, basePrice, capacity)) {
+                        System.out.println("Thêm chuyến bay thành công!");
+                    } else {
+                        System.out.println("Thất bại: Mã chuyến bay đã tồn tại!");
+                    }
+                    break;
+                case 2:
+                    vietSkyManager.displayFlight();
+                    System.out.println("Nhập mã chuyến bay: ");
+                    String flightCode = sc.next();
+                    if (!vietSkyManager.hasFlight(flightCode)) {
+                        System.out.println("Thất bại: Chuyến bay " + flightCode + " không tồn tại!");
+                        break;
+                    }
+                    System.out.println("Nhập số CCCD/Hộ chiếu: ");
+                    String id = sc.next();
+                    System.out.println("Nhập họ và tên: ");
+                    String name = sc.next();
+                    System.out.println("Nhập năm sinh: ");
+                    int yob = sc.nextInt();
+                    Passenger passenger = new Passenger(id, name, yob);
+                    vietSkyManager.addPassenger(id, passenger);
+                    System.out.println("Nhập khối lượng hành lý gửi (kg): ");
+                    int luggage = sc.nextInt();
+                    System.out.println("Chọn hạng vé: (1) Economy | (2) Business | (3) Promo");
+                    System.out.println("Lựa chọn của bạn: ");
+                    int type = sc.nextInt();
+                    vietSkyManager.processBooking(flightCode, passenger, luggage, type);
+                    break;
+                case 3:
+                    vietSkyManager.displayFlight();
+                    System.out.println("Nhập mã chuyến bay: ");
+                    String flightCode1 = sc.next();
+                    if (!vietSkyManager.hasFlight(flightCode1)) {
+                        System.out.println("Chuyến bay không tồn tại!");
+                        return;
+                    }
+                    vietSkyManager.displayPassenger();
+                    System.out.println("Nhập số CCCD khách hàng cần hủy: ");
+                    String passengerId = sc.next();
+                    Ticket ticket1 = vietSkyManager.processCancellation(flightCode1, passengerId);
+                    if (ticket1 == null) {
+                        System.out.println("Không tìm thấy vé hợp lệ của khách hàng này trên chuyến " + flightCode1);
+                    } else if (!ticket1.canBeCancelled()) {
+                        System.out.println("Thất bại: Hệ thống từ chối vì vé hạng " + ticket1.getTicketType() + " không hỗ trợ hoàn/hủy.");
+                    } else {
+                        System.out.println("Hủy vé thành công!");
+                        System.out.println("Số tiền hoàn trả (vé) của khách: " +  ticket1.calculateRefundAmount() + " VNĐ");
+                        System.out.println("Phí phạt hãng giữ lại: " + ticket1.calculateCancellationFee() + " VNĐ");
+                    }
+                    break;
+                case 4:
+                    for (Flight f : vietSkyManager.getFlightList().values()) {
+                        f.displayFlight();
+                    }
+                    System.out.println("Tổng doanh thu của hãng máy bay VietSky: " + vietSkyManager.calculateTotalRevenue() + " VNĐ");
+                    break;
+                case 5:
+                    System.out.println("Đang thoát...");
+                    break;
+                default:
+                    System.out.println("Không có chức năng này!");
+                    break;
+            }
+        }while (choice != 5);
     }
 }

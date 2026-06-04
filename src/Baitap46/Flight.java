@@ -5,14 +5,12 @@ import java.util.HashMap;
 public class Flight {
     private String flightCode;
     private int basePrice;
-    private String route;
     private int maxCapacity;
     private HashMap<String, Ticket> tickets;
 
-    public Flight(String flightCode, String route, int basePrice, int maxCapacity) {
+    public Flight(String flightCode, int basePrice, int maxCapacity) {
         this.flightCode = flightCode;
         this.basePrice = basePrice;
-        this.route = route;
         this.maxCapacity = maxCapacity;
         this.tickets = new HashMap<>();
     }
@@ -44,7 +42,7 @@ public class Flight {
             return false;
         }
         tickets.put(passengerId, ticket);
-        System.out.printf("Thành công! Hóa đơn : " + ticket.getTotalPaid() + "(Vé: " + ticket.calculateTicketPrice() + ", hành lí: " + ticket.calculateLuggageFee());
+        System.out.println("Thành công! Hóa đơn : " + ticket.getTotalPaid() + " VNĐ (Vé: " + ticket.calculateTicketPrice() + ", hành lí: " + ticket.calculateLuggageFee() + ")");
         return true;
     }
 
@@ -63,5 +61,9 @@ public class Flight {
             total += t.getRevenue();
         }
         return total;
+    }
+
+    public void displayFlight() {
+        System.out.println("Id: " + getFlightCode() + " |Số khách hiện tại: " + getActivePassenger() + " |Doanh thu chuyến bay: " + getFlightRevenue());
     }
 }
