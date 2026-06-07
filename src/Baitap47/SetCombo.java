@@ -24,6 +24,6 @@ public class SetCombo extends Menu{
 
     @Override
     public void display() {
-
+        System.out.println("ID: " + getId() + " Name: " + getName() + " |Price: " + getBasePrice());
     }
 }

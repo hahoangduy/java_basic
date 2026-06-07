@@ -12,6 +12,6 @@ public class StandardItem extends Menu{
 
     @Override
     public void display() {
-
+        System.out.println("ID: " + getId() + " Name: " + getName() + " |Price: " + getBasePrice());
     }
 }

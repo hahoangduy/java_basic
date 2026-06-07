@@ -1,5 +1,8 @@
 package Baitap47;
 
+import java.util.Scanner;
+import java.util.Set;
+
 public class Test {
     public static void main(String[] args) {
         /*
@@ -70,7 +73,77 @@ public class Test {
         Bước 4: Báo cáo
         - In ra Tổng doanh thu thực tế nhà hàng thu được (Bao gồm cả thuế).
         */
-
-
+        RestaurantManager manager = new RestaurantManager();
+        Scanner sc = new Scanner(System.in);
+        manager.addTable(new Table("B01", 4));
+        manager.addTable(new Table("B02", 2));
+        manager.addTable(new Table("B03", 8));
+        StandardItem pho = new StandardItem("ST01", "Phở Bò Kobe", 100000);
+        StandardItem coca = new StandardItem("ST02", "Coca Cola", 25000);
+        ChefSpecialItem wagyu = new ChefSpecialItem("CS01", "Bò Wagyu Nướng Đá", 1800000);
+        SetCombo combo = new SetCombo("CB01", "Combo Trưa Tiết Kiệm");
+        combo.addComponent(pho);
+        combo.addComponent(coca);
+        manager.addMenuItem(pho);
+        manager.addMenuItem(coca);
+        manager.addMenuItem(wagyu);
+        manager.addMenuItem(combo);
+        int choice;
+        do {
+            System.out.println("===== HỆ THỐNG QUẢN LÝ NHÀ HÀNG =====");
+            System.out.println("1. Xem sơ đồ trạng thái bàn ăn |2. Đón khách vào bàn |3. Gọi món ăn cho bàn |4. Thanh toán hóa đơn |5. Xem tổng doanh thu |6. Thoát chương trình");
+            choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("--- SƠ ĐỒ TRẠNG THÁI BÀN ---");
+                    for (Table t : manager.getTables()) {
+                        System.out.println("Bàn: " + t.getTableId() + " |Chỗ ngồi: " + t.getMaxCapacity() + " chỗ |Trạng thái: " + t.getStatus());
+                    }
+                    break;
+                case 2:
+                    System.out.println("--- ĐÓN KHÁCH ---");
+                    System.out.print("Nhập mã bàn muốn mở: ");
+                    String tId = sc.next();
+                    System.out.print("Nhập số lượng khách vào ngồi: ");
+                    int count = sc.nextInt();
+                    manager.checkInTable(tId,count, "O01");
+                    break;
+                case 3:
+                    System.out.println("--- GỌI MÓN ---");
+                    System.out.print("Nhập mã bàn muốn gọi món: ");
+                    String orderTableId = sc.next();
+                    Order currentOrder = manager.getActiveOrderOfTable(orderTableId);
+                    if (currentOrder == null) {
+                        System.out.println("Bàn này đang trống, hãy làm thủ tục Check-in đón khách trước!");
+                        break;
+                    }
+                    System.out.println("--- MENU NHÀ HÀNG ---");
+                    for (Menu item : manager.getMenu()) {
+                        item.display();
+                    }
+                    System.out.println("Nhập mã món ăn khách chọn: ");
+                    String mId = sc.next();
+                    Menu pickedItem = manager.findMenuItem(mId);
+                    if (pickedItem == null) {
+                        System.out.println("Mã món ăn không chính xác!");
+                        break;
+                    }
+                    System.out.println("Nhập số lượng phần muốn mua: ");
+                    int qty = sc.nextInt();
+                    sc.nextLine();
+                    currentOrder.addMenuItem(pickedItem, qty);
+                    System.out.println("Đã thêm " + qty + " phần" + pickedItem.getName() + " vào đơn hàng của bàn " + orderTableId);
+                    break;
+                case 4:
+                    System.out.println("--- THANH TOÁN ---");
+                    System.out.print("Nhập mã bàn cần thanh toán: ");
+                    String checkoutTableId = sc.next();
+                    manager.processCheckout(checkoutTableId);
+                    break;
+                case 5:
+                    manager.calculateTotalRevenue();
+                    break;
+            }
+        }while (choice != 6);
     }
 }
