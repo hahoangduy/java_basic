@@ -1,26 +1,34 @@
 package Baitap47;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class RestaurantManager {
     private ArrayList<Table> tables = new ArrayList<>();
     private ArrayList<Menu> menu = new ArrayList<>();
-    private HashMap<String, Order> orders = new HashMap<>();
+    private ArrayList<Order> orders = new ArrayList<>();
     private ArrayList<Order> revenueHistory = new ArrayList<>();
 
     public void addTable(Table table) { tables.add(table); }
     public void addMenuItem(Menu item) { menu.add(item); }
     public ArrayList<Table> getTables() { return tables; }
     public ArrayList<Menu> getMenu() { return menu; }
-    public Order getActiveOrderOfTable(String tableId) { return orders.get(tableId); }
 
     public Table findTable(String tableId) {
-        for (Table t : tables) { if (t.getTableId().equalsIgnoreCase(tableId)) return t; }
+        for (Table t : tables) { if (t.getTableId().equals(tableId)) return t; }
         return null;
     }
     public Menu findMenuItem(String itemId) {
-        for (Menu item : menu) { if (item.getId().equalsIgnoreCase(itemId)) return item; }
+        for (Menu item : menu) { if (item.getId().equals(itemId)) return item; }
+        return null;
+    }
+    public Order getActiveOrderOfTable(String tableId) {
+        for (Order order : orders) {
+            if (order.getTable().getTableId().equals(tableId)) {
+                return order;
+            }
+        }
         return null;
     }
 
@@ -32,7 +40,7 @@ public class RestaurantManager {
         }
         if (table.checkIn(guestCount)) {
             Order newOrder = new Order(orderId, table);
-            orders.put(tableId.toUpperCase(), newOrder);
+            orders.add(newOrder);
             System.out.println("Đã mở bàn " + tableId + " cho " + guestCount + " khách.");
         } else {
             System.out.println("Bàn đang bận hoặc số khách vượt quá sức chứa (" + table.getMaxCapacity() + " chỗ).");
@@ -40,17 +48,12 @@ public class RestaurantManager {
     }
 
     public void processCheckout(String tableId) {
-        Order order = orders.get(tableId);
-        if (order == null) {
-            System.out.println("Bàn " + tableId + " hiện đang trống, không có hóa đơn để tính tiền!");
-            return;
-        }
+        Order order = getActiveOrderOfTable(tableId);
         double subtotal = order.calculateSubtotal();
         double finalAmount = order.calculateFinalTotal();
         order.setPaid(true);
         order.getTable().checkOut();
         revenueHistory.add(order);
-        orders.remove(tableId);
         System.out.println("------ HÓA ĐƠN THANH TOÁN ------");
         System.out.println("Mã hóa đơn: " + order.getOrderId() + " | Bàn: " + tableId.toUpperCase());
         System.out.println("");
@@ -71,5 +74,20 @@ public class RestaurantManager {
             total += o.calculateFinalTotal();
         }
         System.out.println("Tổng doanh thu: " + total);
+    }
+
+    public void mostOrderItem() {
+        Menu mostOrderItem = null;
+        int maxQuantity = 0;
+        for (Order order : orders) {
+            for (Menu item : order.getItemQuantities().keySet()) {
+                int quantity = order.getItemQuantities().get(item);
+                if (quantity > maxQuantity) {
+                    maxQuantity = quantity;
+                    mostOrderItem = item;
+                }
+            }
+        }
+        System.out.println("Món ăn được order nhiều nhất là: " +  mostOrderItem.getName() + " |Số lượng: " + maxQuantity);
     }
 }

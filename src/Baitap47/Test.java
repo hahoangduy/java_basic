@@ -91,7 +91,7 @@ public class Test {
         int choice;
         do {
             System.out.println("===== HỆ THỐNG QUẢN LÝ NHÀ HÀNG =====");
-            System.out.println("1. Xem sơ đồ trạng thái bàn ăn |2. Đón khách vào bàn |3. Gọi món ăn cho bàn |4. Thanh toán hóa đơn |5. Xem tổng doanh thu |6. Thoát chương trình");
+            System.out.println("1. Xem sơ đồ trạng thái bàn ăn |2. Đón khách vào bàn |3. Gọi món ăn cho bàn |4. Thanh toán hóa đơn |5. Xem tổng doanh thu |6. Món best seller |7. Thoát chương trình");
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
@@ -132,7 +132,7 @@ public class Test {
                     int qty = sc.nextInt();
                     sc.nextLine();
                     currentOrder.addMenuItem(pickedItem, qty);
-                    System.out.println("Đã thêm " + qty + " phần" + pickedItem.getName() + " vào đơn hàng của bàn " + orderTableId);
+                    System.out.println("Đã thêm " + qty + " phần " + pickedItem.getName() + " vào đơn hàng của bàn " + orderTableId);
                     break;
                 case 4:
                     System.out.println("--- THANH TOÁN ---");
@@ -143,7 +143,15 @@ public class Test {
                 case 5:
                     manager.calculateTotalRevenue();
                     break;
+                case 6:
+                    manager.mostOrderItem();
+                    break;
+                case 7:
+                    System.out.println("Đang thoát...");
+                    break;
+                default:
+                    System.out.println("Không có chức năng này!");
             }
-        }while (choice != 6);
+        }while (choice != 7);
     }
 }
