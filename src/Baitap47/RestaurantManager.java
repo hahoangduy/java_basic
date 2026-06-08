@@ -79,13 +79,16 @@ public class RestaurantManager {
     public void mostOrderItem() {
         Menu mostOrderItem = null;
         int maxQuantity = 0;
-        for (Order order : orders) {
-            for (Menu item : order.getItemQuantities().keySet()) {
-                int quantity = order.getItemQuantities().get(item);
-                if (quantity > maxQuantity) {
-                    maxQuantity = quantity;
-                    mostOrderItem = item;
+        for (Menu item : menu) {
+            int totalQuantity = 0;
+            for (Order order : orders) {
+                if (order.getItemQuantities().containsKey(item)) {
+                    totalQuantity += order.getItemQuantities().get(item);
                 }
+            }
+            if (totalQuantity > maxQuantity) {
+                maxQuantity = totalQuantity;
+                mostOrderItem = item;
             }
         }
         System.out.println("Món ăn được order nhiều nhất là: " +  mostOrderItem.getName() + " |Số lượng: " + maxQuantity);
