@@ -84,8 +84,10 @@ public class ParkingManager {
             totalRevenue += fee;
             System.out.println("----- HÓA ĐƠN THANH TOÁN -----");
             System.out.println("Loại xe: " + type + " |Biển số: " + vehicle.getLicensePlate() + " |Thời gian gửi: " + hours + " giờ");
-            if (isOvernight) {
-                System.out.println("Có gửi qua đêm (phụ thu 100.000 VNĐ)");
+            if (type.equals("Ô tô")) {
+                if (isOvernight) {
+                    System.out.println("Có gửi qua đêm (phụ thu 100.000 VNĐ)");
+                }
             }
             System.out.println("Tổng hóa đơn: " + fee + " VNĐ");
         }
