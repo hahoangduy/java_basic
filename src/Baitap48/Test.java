@@ -113,12 +113,31 @@ public class Test {
                         break;
                     }
                     System.out.println("Nhập ID thẻ: ");
-                    String passIdInput = sc.next();
-                    ParkingPass passInput = parkingManager.getMonthlyPass(passIdInput);
+                    String passIdIn = sc.next();
+                    ParkingPass passInput = parkingManager.getMonthlyPass(passIdIn);
                     if (passInput == null) {
-                        passInput = new VisitorPass(passIdInput);
+                        passInput = new VisitorPass(passIdIn);
                     }
                     parkingManager.checkIn(vehicle, passInput);
+                    break;
+                case 2:
+                    System.out.println("Nhập ID thẻ: ");
+                    String passIdOut = sc.next();
+                    System.out.print("Nhập số giờ gửi thực tế: ");
+                    int hours = sc.nextInt();
+                    System.out.print("Có gửi qua đêm không?");
+                    System.out.println("True | False");
+                    boolean isOvernight = sc.nextBoolean();
+                    parkingManager.checkOut(passIdOut, hours, isOvernight);
+                    break;
+                case 3:
+                    parkingManager.displayStatisticalReports();
+                    break;
+                case 4:
+                    System.out.println("Đang thoát...");
+                    break;
+                default:
+                    System.out.println("Không có chức năng này!");
                     break;
             }
         }while (choice != 4);
