@@ -24,7 +24,6 @@ public class InsertionSort_Bai2 {
 
     public static void main(String[] args) {
         int[] a = {5, 3, 2, 7, 8, 1, 2};
-        int[] b = {1,2,3,4,5,7,6};
         insertionSort(a);
     }
 }

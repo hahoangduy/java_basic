@@ -4,7 +4,7 @@ public class SelectionSort_Bai2 {
     public static void selectionSort(int[] a) {
         int n = a.length;
         for (int i = 0; i < n; i++) {
-            int minIndex = 1;
+            int minIndex = i;
             for(int j = i+1; j < n; j++ ) {
                 if (a[j] < a[minIndex]) {
                     minIndex = j;
@@ -17,6 +17,7 @@ public class SelectionSort_Bai2 {
             }
             printArray(i, a);
         }
+
     }
 
     public static void printArray(int no, int[] a) {
@@ -29,7 +30,6 @@ public class SelectionSort_Bai2 {
 
     public static void main(String[] args) {
         int[] a = {5, 3, 2, 7, 8, 1, 2};
-        int[] b = {1,2,3,4,5,7,6};
         selectionSort(a);
     }
 }
