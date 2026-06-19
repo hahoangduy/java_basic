@@ -126,6 +126,7 @@ public class Test {
                     class4.calculateTotalTuition();
                     break;
                 case 7:
+
                     school.calculateTotalSchoolTuition();
                     break;
                 case 8:

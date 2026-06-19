@@ -24,7 +24,13 @@ public class Test13 {
         printArray(arr);
     }
     public static int countBit(int number) {
-        int count = Integer.bitCount(number);
+        int count = 0;
+        while (number > 0) {
+            if (number % 2 == 1) {
+                count++;
+            }
+            number /= 2;
+        }
         return count;
     }
 

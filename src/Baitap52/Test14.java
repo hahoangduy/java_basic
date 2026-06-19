@@ -8,17 +8,15 @@ public class Test14 {
         int n = arr.length;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n-i-1; j++) {
-                int sumArray1 = sumOfArray(arr[j], arr);
-                int sumArray2 = sumOfArray(arr[j+1], arr);
-                int countArray1 = countOfLength(arr[j], arr);
-                int countArray2 = countOfLength(arr[j+1], arr);
+                int sumArray1 = sumOfArray(arr[j]);
+                int sumArray2 = sumOfArray(arr[j+1]);
                 if (sumArray1 < sumArray2) {
                     int[] tam = arr[j];
                     arr[j] = arr[j+1];
                     arr[j+1] = tam;
                 }
                 if (sumArray1 == sumArray2) {
-                    if (countArray1 >  countArray2) {
+                    if (arr[j].length > arr[j+1].length) {
                         int[] tam1 = arr[j];
                         arr[j] = arr[j+1];
                         arr[j+1] = tam1;
@@ -29,26 +27,12 @@ public class Test14 {
         printArray(arr);
     }
 
-    public static int sumOfArray(int[] a, int[][] arr) {
+    public static int sumOfArray(int[] a) {
         int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < a.length; j++) {
-                sum += a[j];
-            }
-            return sum;
+        for (int i = 0; i < a.length; i++) {
+            sum += a[i];
         }
         return sum;
-    }
-
-    public static int countOfLength(int[] a, int[][] arr) {
-        int count = 0;
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < a.length; j++) {
-                count++;
-            }
-            return count;
-        }
-        return count;
     }
 
     public static void printArray(int[][] arr) {
@@ -57,7 +41,6 @@ public class Test14 {
         }
         System.out.println();
     }
-
 
     public static void main(String[] args) {
         /*Cho một mảng hai chiều arr (có thể hiểu là một danh sách chứa các danh sách con nhỏ hơn).
