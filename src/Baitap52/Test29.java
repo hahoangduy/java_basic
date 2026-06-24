@@ -32,7 +32,7 @@ public class Test29 {
 
     public static void binarySearch(int[] arr, int target) {
         int left = 0;
-        int right = arr.length - 1;
+        int right = arr.length-1;
         int count = 0;
         while (left <= right) {
             if (arr[left] + arr[right] < target) {
@@ -48,7 +48,7 @@ public class Test29 {
 
 
     public static void main(String[] args) {
-        /*Cho một mảng số nguyên arr (có   thể chứa số âm) và một số nguyên target. Hãy đếm số lượng các cặp (i, j) thỏa mãn hai điều kiện:
+        /*Cho một mảng số nguyên arr (có thể chứa số âm) và một số nguyên target. Hãy đếm số lượng các cặp (i, j) thỏa mãn hai điều kiện:
         Vị trí của chúng khác nhau (0 <= i < j < arr.length).
 
         Tổng của hai phần tử nhỏ hơn mục tiêu: arr[i] + arr[j] < target.
@@ -68,7 +68,7 @@ public class Test29 {
         System.out.println("Ví dụ 1: ");
         System.out.println(Arrays.toString(arr1));
         System.out.print("Output: ");
-        /*linearSearch(arr1, target1);*/
+        linearSearch(arr1, target1);
         binarySearch(arr1, target1);
         System.out.println();
         int[] arr2 = {-6, 2, 5, -2, -7, -1, 3}; int target2 = -2;
@@ -76,9 +76,8 @@ public class Test29 {
         System.out.println("Ví dụ 2: ");
         System.out.println(Arrays.toString(arr2));
         System.out.print("Output: ");
-        /*linearSearch(arr2, target2);*/
+        linearSearch(arr2, target2);
         binarySearch(arr2, target2);
 
-        int[] arr3 = {1, 2, 3}; int target3 = 10;
     }
 }

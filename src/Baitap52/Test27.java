@@ -35,16 +35,19 @@ public class Test27 {
         int count = 0;
         int left = 0;
         int right = arr.length - 1;
-        while (left < right) {
-            if (arr[left] < arr[right]) {
-                if (Math.abs(arr[left] - arr[right]) == target) {
-                    count++;
-                    left++;
-                }
+        while (right <= arr.length - 1 && left <= right) {
+            if (Math.abs(arr[left] - arr[right]) == target) {
+                count++;
+                left++;
+                right++;
+            } else if (Math.abs(arr[left] - arr[right]) > target) {
+                right--;
+            } else if (Math.abs(arr[left] - arr[right]) < target) {
+                left++;
             }
         }
+        System.out.println(count);
     }
-
 
     public static void main(String[] args) {
         /*Cho một mảng số nguyên arr chứa các số không trùng lặp và một số nguyên dương k.
@@ -55,6 +58,7 @@ public class Test27 {
         Giải thích: Có 3 cặp số thỏa mãn khoảng cách bằng 2 là: (1, 3), (3, 5), và (2, 4).
         Ví dụ 2:
         Input: arr = [8, 12, 16, 4, 0, 20], k = 4
+        0 4 8 12 16 20
         Output: 5
          */
         int[] arr1 = {1, 5, 3, 4, 2}; int k1 = 2;
@@ -62,7 +66,7 @@ public class Test27 {
         System.out.println("Ví dụ 1: ");
         System.out.println(Arrays.toString(arr1));
         System.out.print("Output: ");
-        /*linearSearch(arr1, k1);*/
+        linearSearch(arr1, k1);
         binarySearch(arr1, k1);
         System.out.println();
         int[] arr2 = {8, 12, 16, 4, 0, 20}; int k2 = 4;
@@ -70,7 +74,7 @@ public class Test27 {
         System.out.println("Ví dụ 2: ");
         System.out.println(Arrays.toString(arr2));
         System.out.print("Output: ");
-        /*linearSearch(arr2, k2);*/
+        linearSearch(arr2, k2);
         binarySearch(arr2, k2);
     }
 }
