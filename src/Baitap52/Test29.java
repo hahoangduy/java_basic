@@ -4,10 +4,11 @@ import java.util.Arrays;
 
 public class Test29 {
 
+    /*time complexity O(n^2)*/
     public static void linearSearch(int[] arr, int target) {
         int count = 0;
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 1; j < arr.length; j++) {
+            for (int j = i+1; j < arr.length; j++) {
                 int sum = arr[i] + arr[j];
                 if (sum < target) {
                     count++;
@@ -16,6 +17,35 @@ public class Test29 {
         }
         System.out.println(count);
     }
+
+    public static void bubbleSort(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length-i-1; j++) {
+                if (arr[j] > arr[j+1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
+
+    public static void binarySearch(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
+        int count = 0;
+        while (left <= right) {
+            if (arr[left] + arr[right] < target) {
+                count += (right - left);
+                left++;
+            }
+            else{
+                right--;
+            }
+        }
+        System.out.println(count);
+    }
+
 
     public static void main(String[] args) {
         /*Cho một mảng số nguyên arr (có   thể chứa số âm) và một số nguyên target. Hãy đếm số lượng các cặp (i, j) thỏa mãn hai điều kiện:
@@ -34,15 +64,21 @@ public class Test29 {
         Output: 10*/
 
         int[] arr1 = {-1, 1, 2, 3, 1}; int target1 = 2;
+        bubbleSort(arr1);
         System.out.println("Ví dụ 1: ");
         System.out.println(Arrays.toString(arr1));
         System.out.print("Output: ");
-        linearSearch(arr1, target1);
+        /*linearSearch(arr1, target1);*/
+        binarySearch(arr1, target1);
         System.out.println();
         int[] arr2 = {-6, 2, 5, -2, -7, -1, 3}; int target2 = -2;
+        bubbleSort(arr2);
         System.out.println("Ví dụ 2: ");
         System.out.println(Arrays.toString(arr2));
         System.out.print("Output: ");
-        linearSearch(arr2, target2);
+        /*linearSearch(arr2, target2);*/
+        binarySearch(arr2, target2);
+
+        int[] arr3 = {1, 2, 3}; int target3 = 10;
     }
 }
