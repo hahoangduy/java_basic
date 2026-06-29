@@ -4,18 +4,19 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class Test40 {
-
     public static int hashMap(int[] arr) {
+        if (arr == null || arr.length == 0)
+            return 0;
         HashMap<Integer, Integer> map = new HashMap<>();
-        int count = 0;
         for (int i = 0; i < arr.length; i++) {
            map.put(arr[i], 1);
         }
+        int count = 0;
         for (int num : map.keySet()) {
-            if (map.containsKey(num-1)) {
+            if (!(map.containsKey(num-1))) {
                 int currentNum = num;
                 int currentCount = 1;
-                while (map.containsKey(currentNum)) {
+                while (map.containsKey(currentNum+1)) {
                     currentCount++;
                     currentNum++;
                 }
@@ -24,6 +25,8 @@ public class Test40 {
         }
         return count;
     }
+
+
 
     public static void main(String[] args) {
         /*Cho một mảng các số nguyên chưa được sắp xếp arr. Hãy tìm độ dài của chuỗi các phần tử có giá trị liên tiếp nhau dài nhất.

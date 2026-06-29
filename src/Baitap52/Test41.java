@@ -6,6 +6,9 @@ import java.util.HashMap;
 public class Test41 {
 
     public static int hashMap(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return 0;
+        }
         HashMap<Integer, Integer> map = new HashMap<>();
         map.put(0, -1);
         int currentSum = 0;
