@@ -32,17 +32,37 @@ public class Test51 {
         }
         return result;
     }
+    private static int findMax(HashMap<Integer, Integer> map) {
+        int max = Integer.MIN_VALUE;
+        for (int key : map.keySet()) {
+            if (key > max) {
+                max = key;
+            }
+        }
+        return max;
+    }
 
     public static int[] maxValueInWindow2(int[] arr, int k) {
-        if (arr.length == 0) {
-            return new int[]{};
+        if (arr == null || arr.length == 0 || k == 0) {
+            return new int[0];
         }
-        else if (arr.length == 1) {
-            return new int[]{arr[0]};
+        int n = arr.length;
+        int[] result = new int[n - k + 1];
+        HashMap<Integer, Integer> freqMap = new HashMap<>();
+        for (int i = 0; i < k; i++) {
+            freqMap.put(arr[i], freqMap.getOrDefault(arr[i], 0) + 1);
         }
-        int[] result = new int[arr.length-k+1];
-        int left = 0;
-        int maxValue = 0;
+        result[0] = findMax(freqMap);
+        for (int i = k; i < n; i++) {
+            int out = arr[i - k];
+            freqMap.put(out, freqMap.get(out) - 1);
+            if (freqMap.get(out) == 0) {
+                freqMap.remove(out);
+            }
+            int in = arr[i];
+            freqMap.put(in, freqMap.getOrDefault(in, 0) + 1);
+            result[i - k + 1] = findMax(freqMap);
+        }
         return result;
     }
 
@@ -73,9 +93,10 @@ public class Test51 {
         int[] arr2 = {1}; int k2 = 1;
         System.out.println("Ví dụ 2: " + Arrays.toString(arr2) + " |K: " + k2);
         System.out.println("Output: " + Arrays.toString(maxValueInWindow(arr2, k2)));
-        System.out.println("Output2: " + Arrays.toString(maxValueInWindow(arr2, k2)));
+        System.out.println("Output2: " + Arrays.toString(maxValueInWindow2(arr2, k2)));
 
-        int[] arr3 = {10,9,8,7}; int k3 = 4;
+        int[] arr3 = {10,9,8,7}; int k3 = 3;
         System.out.println(Arrays.toString(maxValueInWindow(arr3, k3)));
+        System.out.println(Arrays.toString(maxValueInWindow2(arr3, k3)));
     }
 }
