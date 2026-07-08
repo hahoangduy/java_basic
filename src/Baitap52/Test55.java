@@ -6,9 +6,9 @@ public class Test55 {
 
     public static int[] removeDuplication(int[] arr) {
         if (arr.length == 0)
-            return new int[]{0};
+            return new int[]{};
         int j = 1;
-        for (int i = 2; i < arr.length; i++) {
+        for (int i = 1; i < arr.length; i++) {
             if (arr[i] != arr[i-1]) {
                 arr[j] = arr[i];
                 j++;
