@@ -9,6 +9,8 @@ public class bai27 {
         Float[] mangFl;
         Double[] mangDb;
 
+
+
         //2. khai bao kem theo kich thuoc
         String[] mangStr1 = new String[12]; // chua toi da duoc 12 phan tu
         int[] mangNguyen = new int[6]; // chua toi da duoc 6 phan tu
