@@ -1,11 +1,11 @@
 package Baitap53.Bai1;
 
-public class Stack {
+public class StackChar {
 
     private Character[] array;
     private int SIZE;
     private int topIndex;
-    public Stack(int size){
+    public StackChar(int size){
         SIZE = size;
         array = new Character[SIZE];
         topIndex = -1;

@@ -3,7 +3,7 @@ package Baitap53.Bai1;
 public class Main {
 
     public static boolean symmetryCheck(String a) {
-        Stack stack = new Stack(a.length());
+        StackChar stack = new StackChar(a.length());
         for (int i = 0; i < a.length(); i++) {
             char c = a.charAt(i);
             if (c == '(' || c == '[' || c == '{') {
