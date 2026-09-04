@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 public class Main {
 
+    // 8, 4, 6, 2, 3
+
+    //
     public static String discount(int[] prices) {
         StackBai11 stack = new StackBai11(prices.length);
         for (int i = 0; i < prices.length; i++) {

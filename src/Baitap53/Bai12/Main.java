@@ -6,6 +6,9 @@ import java.util.Collections;
 
 public class Main {
 
+    // time complexity: O(n) + O(mlogm)
+    // n là số phần tử của heights phải duyệt qua
+    // m là số phần tử của result phải duyệt qua
     public static ArrayList<Integer> lookingSea(int[] heights) {
         ArrayList<Integer> result = new ArrayList<>();
         int maxHeight = 0;

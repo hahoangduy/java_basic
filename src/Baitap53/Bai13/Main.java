@@ -4,9 +4,10 @@ import Baitap53.Bai11.StackBai11;
 
 public class Main {
 
+    // s = "a)b(c)d" peek, pop ,  "a(v(a"
     public static String removeBracket(String s) {
         StackBai11 stack = new StackBai11(s.length());
-        boolean[] remove = new boolean[s.length()];
+        boolean[] remove = new boolean[s.length()]; //
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (c == '(')
