@@ -97,7 +97,8 @@ Khi dùng cách dùng này thì có thể nhập chuỗi(String) -> ... sau đó
 
 
 ## Bảng mã ASCII
-<img width="400" height="317" alt="image" src="https://github.com/user-attachments/assets/15aa0f71-db65-4874-9372-d9388ac74542" />
+<img width="930" height="521" alt="image" src="https://github.com/user-attachments/assets/15aa0f71-db65-4874-9372-d9388ac74542" />
+
 Số Decimal đại diện cho 1 Char(ký tự)
 
 
