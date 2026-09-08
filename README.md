@@ -140,7 +140,7 @@ Số Decimal đại diện cho 1 Char(ký tự)
        - Two pointer: là phương pháp sử dụng hai biến lưu trữ vị trí (chỉ số) để duyệt qua các phần tử trong mảng hoặc chuỗi nhằm tối ưu thời gian chạy thay vì phải dùng 2 vòng lặp.
 
 
-# =============================================
+# =====================================
 
 # CƠ SỞ DỮ LIỆU
 
