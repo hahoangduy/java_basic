@@ -1,4 +1,4 @@
-# java_basic
+# JAVA
 
 
 ## bit, byte, kb, mb, gb, tb,...
@@ -121,5 +121,22 @@ Số Decimal đại diện cho 1 Char(ký tự)
    - Giải thuật (Thuật toán): Là tập hợp các bước hoặc quy tắc rõ ràng, hữu hạn để giải quyết một bài toán cụ thể.
 
 2. Chi tiết:
+   
    ### Cấu trúc dữ liệu:
-       - Array: 
+       - Array (Mảng): là một cấu trúc dữ liệu tập hợp các phần tử liên tiếp nhau có cùng kiểu dữ liệu, truy cập nhanh qua chỉ số (index).
+       - HashMap (Bảng băm): là một cấu trúc dữ liệu lưu trữ dữ liệu theo cặp khóa và giá trị (key-value), giúp tìm kiếm, thêm hoặc xóa dữ liệu rất nhanh chóng.
+       - Stack (Ngăn xếp): là một cấu trúc dữ liệu theo nguyên tắc LIFO (Last In, First Out - Vào sau ra trước), nghĩa là phần tử nào được thêm vào cuối cùng sẽ được lấy ra đầu tiên.
+       - Queue (Hàng đợi): là một cấu trúc dữ liệu tuyến tính hoạt động theo nguyên tắc FIFO (First In, First Out - vào trước, ra trước).
+
+   ### Giải thuật (Thuật toán):
+       - Thuật toán tìm kiếm: Tìm vị trí phần tử, ví dụ như Tìm kiếm tuyến tính (Linear Search) hay Tìm kiếm nhị phân (Binary Search).
+           + Tìm kiếm tuyến tính (Linear Search): là thuật toán cơ bản duyệt lần lượt từng phần tử từ đầu đến cuối danh sách để tìm giá trị cần thiết.
+           + Tìm kiếm nhị phân (Binary Search): là thuật toán tìm kiếm hiệu quả giúp xác định vị trí của một phần tử trong một mảng đã được sắp xếp.
+       - Thuật toán sắp xếp: Sắp xếp dữ liệu theo thứ tự, ví dụ như Sắp xếp nổi bọt (Bubble Sort), Sắp xếp chèn (Insertion Sort), hoặc Sắp xếp chọn (Selection Sort).
+           + Bubble Sort: chạy từ đầu đến cuối mảng, nếu phần tử đứng trước lớn hơn phần tử đứng sau thì đổi chỗ, sau mỗi lần lặp phần tử lớn nhất sẽ trôi xuống dưới.
+           + Insertion Sort: là một thuật toán sắp xếp đơn giản hoạt động giống như cách bạn sắp xếp các lá bài trên tay: lấy từng phần tử và chèn nó vào đúng vị trí đã được sắp xếp trước đó.
+           + Selection Sort: là thuật toán sắp xếp đơn giản hoạt động bằng cách liên tục tìm phần tử nhỏ nhất từ phần chưa sắp xếp và đưa nó về đầu mảng.
+       - Two pointer: là phương pháp sử dụng hai biến lưu trữ vị trí (chỉ số) để duyệt qua các phần tử trong mảng hoặc chuỗi nhằm tối ưu thời gian chạy thay vì phải dùng 2 vòng lặp.
+
+
+# ===============================================
