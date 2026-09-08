@@ -122,4 +122,4 @@ Số Decimal đại diện cho 1 Char(ký tự)
 
 2. Chi tiết:
    ### Cấu trúc dữ liệu:
-   - Array: 
+       - Array: 
