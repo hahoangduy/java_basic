@@ -96,11 +96,30 @@ Khi dùng cách dùng này thì chỉ có thể chạy code bắt đầu từ ch
 Khi dùng cách dùng này thì có thể nhập chuỗi(String) -> ... sau đó có thể quay lại nhập chuỗi.
 
 
-## String
-### Bảng mã ASCII
+## Bảng mã ASCII
 <img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/15aa0f71-db65-4874-9372-d9388ac74542" />
 Số Decimal đại diện cho 1 Char(ký tự)
 
 
+## OOP (Object-Oriented Programming): Lập trình hướng đối tượng.
 
+1. Khái niệm:
+   - Dựa trên class và object
+     + Class: Khuôn mẫu hoặc bản thiết kế chung cho các đối tượng.
+     + Object: Thể hiện cụ thể được tạo ra từ lớp, có thuộc tính (dữ liệu) và phương thức (hành vi).
+2. Tính chất:
+   - Có 4 tính chất cốt lõi:
+     + Tính đóng gói (Encapsulation): Giấu thông tin và gom dữ liệu cùng phương thức vào một đối tượng.
+     + Tính kế thừa (Inheritance): Cho phép lớp con tận dụng lại mã nguồn và đặc điểm từ lớp cha.
+     + Tính đa hình (Polymorphism): Một hành động có thể thực hiện theo nhiều cách khác nhau ở các đối tượng khác nhau.
+     + Tính trừu tượng (Abstraction): Chỉ giữ lại các đặc điểm cần thiết và ẩn đi chi tiết phức tạp bên trong.
 
+## Cấu trúc dữ liệu và giải thuật (Data Structures and Algorithms - DSA)
+
+1. Khái niệm:
+   - Cấu trúc dữ liệu: Là cách sắp xếp, lưu trữ dữ liệu trong bộ nhớ máy tính để chương trình truy xuất và thao tác nhanh chóng.
+   - Giải thuật (Thuật toán): Là tập hợp các bước hoặc quy tắc rõ ràng, hữu hạn để giải quyết một bài toán cụ thể.
+
+2. Chi tiết:
+   ### Cấu trúc dữ liệu:
+   - Array: 
